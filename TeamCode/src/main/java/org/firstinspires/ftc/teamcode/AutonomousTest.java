@@ -6,12 +6,15 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 @Autonomous(name="AutonomousTest", group="Pushbot")
 
 public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
 
+    @Override
     public boolean isOpModeIsActive(){
         return opModeIsActive();
     }
@@ -21,13 +24,13 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
         robot.init(hardwareMap);
         robot.navigation.setOpModeAddition(this);
-        robot.navigation.setTelemetry(telemetry);
+        robot.navigation.setHardwareMap(hardwareMap);
+        robot.navigation.setTelemetry(this);
         robot.navigation.resetEncoders();
 
         waitForStart();
 
-        robot.navigation.drive(0.2, 20);
-
+        robot.navigation.drive(20, 0.5);
 
 
     }

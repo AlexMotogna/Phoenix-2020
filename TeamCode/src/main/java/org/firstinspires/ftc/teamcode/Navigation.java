@@ -1,16 +1,20 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import org.firstinspires.ftc.robotcore.internal.opmode.TelemetryImpl;
 
 public class Navigation {
     Hardware robot;
     OpModeAddition opMode;
     Telemetry telemetry;
 
-    double reductie = 40*1; //pt motor 40:1
+    public HardwareMap hMap = null;
+
+    double reductie = 40*1.5; //pt motor 40:1
     double coutPerRev = 28; //count ul encoderului :)
     double wheelDiam = 4.0 * 2.54;
     double k = (reductie * coutPerRev) / (wheelDiam * 3.14);
@@ -23,9 +27,11 @@ public class Navigation {
         this.opMode = opMode;
     }
 
-    public void setTelemetry(Telemetry telemetry){
-        this.telemetry = telemetry;
+    public void setTelemetry(OpMode opMode){
+        telemetry = new TelemetryImpl(opMode);
     }
+
+    public void setHardwareMap(HardwareMap hmap){ this.hMap = hmap; }
 
     public void resetEncoders()
     {
@@ -40,10 +46,10 @@ public class Navigation {
         robot.leftMotorBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
-    public void drive(double Speed, double distance){
+    public void drive(int Target, double Speed){
 
-        int Target = (int) distance * (int) k;
-        if(Target < 0) Speed *= (-1);
+        Target = (int)(Target * k);
+        if(Target < 0) Speed = Speed*(-1);
 
         robot.leftMotorBack.setTargetPosition(robot.leftMotorBack.getCurrentPosition() + Target);
         robot.rightMotorBack.setTargetPosition(robot.rightMotorBack.getCurrentPosition() + Target);
@@ -54,6 +60,7 @@ public class Navigation {
         robot.leftMotorBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.rightMotorFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.leftMotorFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
 
         robot.rightMotorBack.setPower(Speed);
         robot.leftMotorBack.setPower(Speed);
