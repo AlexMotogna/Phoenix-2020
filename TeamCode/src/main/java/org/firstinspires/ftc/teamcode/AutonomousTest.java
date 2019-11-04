@@ -27,10 +27,12 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
         robot.navigation.setHardwareMap(hardwareMap);
         robot.navigation.setTelemetry(this);
         robot.navigation.resetEncoders();
+        robot.navigation.imuInit();
 
         waitForStart();
 
-        robot.navigation.drive(20, 0.5);
+        robot.navigation.drive(40, 0.5);
+        robot.navigation.Turn(87, 0.3);
 
 
     }

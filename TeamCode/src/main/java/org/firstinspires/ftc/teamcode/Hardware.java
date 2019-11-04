@@ -44,6 +44,6 @@ public class Hardware {
          rightMotorFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
          navigation = new Navigation(this);
-
+         imu = hmap.get(BNO055IMU.class, "imu");
      }
 }
