@@ -31,8 +31,11 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
         waitForStart();
 
-        robot.navigation.drive(40, 0.5);
-        robot.navigation.Turn(87, 0.3);
+//        robot.navigation.drive(40, 0.5);
+          robot.navigation.Turn(85, 0.3);
+          robot.navigation.DriveToDistance(15,0.5);
+          robot.navigation.Turn(85, 0.3);
+          robot.navigation.DriveOnTime(3, 0.5);
 
 
     }

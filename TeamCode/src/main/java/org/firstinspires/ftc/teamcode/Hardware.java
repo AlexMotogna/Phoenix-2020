@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -18,8 +19,12 @@ public class Hardware {
      public Navigation navigation = null;
 
      public BNO055IMU imu = null;
+    public ModernRoboticsI2cRangeSensor distance_fata1 = null;
+    public ModernRoboticsI2cRangeSensor distance_fata2 = null;
+    public ModernRoboticsI2cRangeSensor distance_spate = null;
 
 //     public ConceptTensorFlowObjectDetection tensorflow = null;
+
 
 
      public Hardware(){
@@ -43,6 +48,8 @@ public class Hardware {
          leftMotorFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
          rightMotorFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+         distance_fata1 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor1");
+         distance_fata2 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor2");
          navigation = new Navigation(this);
          imu = hmap.get(BNO055IMU.class, "imu");
      }

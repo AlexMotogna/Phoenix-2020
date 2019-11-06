@@ -10,6 +10,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.internal.opmode.TelemetryImpl;
 
@@ -110,10 +111,10 @@ public class Navigation {
 
     public void DriveOnTime (double time, double speed)
     {
-        robot.leftMotorBack.setPower(1);
-        robot.leftMotorFront.setPower(1);
-        robot.rightMotorBack.setPower(1);
-        robot.rightMotorFront.setPower(1);
+        robot.leftMotorBack.setPower(speed);
+        robot.leftMotorFront.setPower(speed);
+        robot.rightMotorBack.setPower(speed);
+        robot.rightMotorFront.setPower(speed);
 
         waitUntil(time);
 
@@ -214,4 +215,25 @@ public class Navigation {
 
     }
 
+    public void DriveToDistance(int dist, double Speed)
+    {
+        if(dist < 0)
+            Speed = Speed * (-1);
+        robot.rightMotorBack.setPower(Speed);
+        robot.leftMotorBack.setPower(Speed);
+        robot.rightMotorFront.setPower(Speed);
+        robot.leftMotorFront.setPower(Speed);
+
+        if(dist > 0) {
+            while(((robot.distance_fata1.getDistance(DistanceUnit.CM) > dist) || (robot.distance_fata2.getDistance(DistanceUnit.CM) > dist)) && opMode.isOpModeIsActive()){
+
+            }
+        }
+
+        robot.rightMotorBack.setPower(0);
+        robot.leftMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+        robot.leftMotorFront.setPower(0);
+
+    }
 }

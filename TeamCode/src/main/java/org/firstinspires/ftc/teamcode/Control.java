@@ -17,6 +17,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
     @Override
     public boolean isOpModeIsActive() { return opModeIsActive(); }
 
+    
 
     @Override
     public void runOpMode() {
