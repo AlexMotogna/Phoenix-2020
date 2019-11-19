@@ -37,8 +37,10 @@ public class Navigation {
         this.opMode = opMode;
     }
 
-    public void setTelemetry(OpMode opMode){
+    public void setTelemetry(OpMode opMode, TensorDetectionClass td){
+
         telemetry = new TelemetryImpl(opMode);
+        td.telemetry = telemetry;
     }
 
     public void setHardwareMap(HardwareMap hmap){ this.hMap = hmap; }
