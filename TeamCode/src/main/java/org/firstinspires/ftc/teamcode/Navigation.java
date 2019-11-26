@@ -80,13 +80,13 @@ public class Navigation {
         robot.leftMotorFront.setPower(Speed);
 
         while(robot.leftMotorBack.isBusy() && robot.rightMotorBack.isBusy() && robot.leftMotorFront.isBusy() && robot.rightMotorFront.isBusy() && opMode.isOpModeIsActive()){
-
-            telemetry.addData("right_encoder_front", robot.rightMotorFront.getCurrentPosition());
-            telemetry.addData("right_encoder_back", robot.rightMotorBack.getCurrentPosition());
-            telemetry.addData("left_motor_back", robot.leftMotorBack.getCurrentPosition());
-            telemetry.addData("left_motor_front", robot.leftMotorFront.getCurrentPosition());
-            telemetry.addData("target", robot.leftMotorBack.getTargetPosition());
-            telemetry.update();
+//
+//            telemetry.addData("right_encoder_front", robot.rightMotorFront.getCurrentPosition());
+//            telemetry.addData("right_encoder_back", robot.rightMotorBack.getCurrentPosition());
+//            telemetry.addData("left_motor_back", robot.leftMotorBack.getCurrentPosition());
+//            telemetry.addData("left_motor_front", robot.leftMotorFront.getCurrentPosition());
+//            telemetry.addData("target", robot.leftMotorBack.getTargetPosition());
+//            telemetry.update();
         }
 
         robot.rightMotorBack.setPower(0);
@@ -238,4 +238,41 @@ public class Navigation {
         robot.leftMotorFront.setPower(0);
 
     }
+    public void Sliding(double Time, String Direction)
+    {
+        if(Direction == "Right")
+        {
+            robot.leftMotorBack.setPower(0.3);
+            robot.leftMotorFront.setPower(-0.3);
+            robot.rightMotorBack.setPower(-0.3);
+            robot.rightMotorFront.setPower(0.3);
+
+            waitUntil(Time);
+
+            robot.rightMotorBack.setPower(0);
+            robot.leftMotorBack.setPower(0);
+            robot.rightMotorFront.setPower(0);
+            robot.leftMotorFront.setPower(0);
+        }
+        else
+        if(Direction == "Left")
+        {
+            robot.leftMotorBack.setPower(-0.3);
+            robot.leftMotorFront.setPower(0.3);
+            robot.rightMotorBack.setPower(0.3);
+            robot.rightMotorFront.setPower(-0.3);
+
+            waitUntil(Time);
+
+            robot.rightMotorBack.setPower(0);
+            robot.leftMotorBack.setPower(0);
+            robot.rightMotorFront.setPower(0);
+            robot.leftMotorFront.setPower(0);
+        }
+    }
+
+
+
+
+
 }
