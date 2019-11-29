@@ -1,16 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.graphics.Path;
-
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
+@Autonomous(name="BlueZone", group="Pushbot")
 
-@Autonomous(name="AutonomousTest", group="Pushbot")
-
-public class AutonomousTest extends LinearOpMode implements OpModeAddition {
+public class BlueZone extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
 
@@ -21,23 +16,25 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
     @Override
     public void runOpMode() {
-
         robot.init(hardwareMap);
         robot.navigation.setOpModeAddition(this);
         robot.navigation.setHardwareMap(hardwareMap);
-//        robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
-//        robot.navigation.resetEncoders();
-//        robot.navigation.imuInit();
+        robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
+        robot.navigation.resetEncoders();
+        robot.navigation.imuInit();
 
-//        robot.tensorDetectionClass.setOpModeAddition(this);
+        robot.tensorDetectionClass.setOpModeAddition(this);
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
-//        robot.tensorDetectionClass.INITCAMERA();
+        robot.tensorDetectionClass.INITCAMERA();
 
+        waitForStart();
 
-        int skystone = 0;
+        int skystone = robot.tensorDetectionClass.TensorDetection();
+        if(skystone == -2) {
+            skystone = 0;
+        }
 
-        if(skystone == 1)
-        {
+        if(skystone == 1) {
             robot.navigation.Sliding(1,"Right");
             robot.navigation.drive(25,0.5);
             //colectare
@@ -56,8 +53,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
             robot.navigation.drive(-40, -0.7);
         }
 
-        if(skystone == 0)
-        {
+        if(skystone == 0) {
             robot.navigation.drive(25,0.5);
             //colectare
             robot.navigation.drive(-10, -0.5);
@@ -75,8 +71,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
             robot.navigation.drive(-40, -0.7);
         }
 
-        if(skystone == -1)
-        {
+        if(skystone == -1) {
             robot.navigation.Sliding(1,"Left");
             robot.navigation.drive(25,0.5);
             //colectare
@@ -95,14 +90,5 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
             robot.navigation.drive(-40, -0.7);
         }
 
-
-
-
-        waitForStart();
-
-
-
-
     }
-
 }
