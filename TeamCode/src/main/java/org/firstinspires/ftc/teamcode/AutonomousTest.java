@@ -33,6 +33,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
 //        robot.tensorDetectionClass.INITCAMERA();
 
+        waitForStart();
 
         int skystone = 0;
 
@@ -95,10 +96,6 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
             robot.navigation.drive(-40, -0.7);
         }
 
-
-
-
-        waitForStart();
 
 
 
