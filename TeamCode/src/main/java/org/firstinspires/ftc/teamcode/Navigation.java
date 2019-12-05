@@ -58,6 +58,15 @@ public class Navigation {
         robot.leftMotorBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
+    public void grab()
+    {
+        robot.servo_arm.setPosition(0.5);
+    }
+    public void release()
+    {
+        robot.servo_arm.setPosition(0);
+    }
+
     public void drive(int Target, double Speed){
 
         Target = (int)(Target * k);

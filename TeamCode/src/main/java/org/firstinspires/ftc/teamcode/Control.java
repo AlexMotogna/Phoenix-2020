@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import java.util.Arrays;
+
 @TeleOp(name = "Control", group = "Control")
 
 public class Control extends LinearOpMode implements OpModeAddition {
@@ -15,10 +17,13 @@ public class Control extends LinearOpMode implements OpModeAddition {
     double direction;
     int in_ce_directie;
 
+
+
+
     @Override
     public boolean isOpModeIsActive() { return opModeIsActive(); }
 
-    
+
 
     @Override
     public void runOpMode() {
@@ -63,15 +68,44 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
-            telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
-            telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());
-            telemetry.addData("rightBack", robot.rightMotorBack.getCurrentPosition());
-            telemetry.addData("rightFront", robot.rightMotorFront.getCurrentPosition());
+
+            //prins skystone
+            if(gamepad1.right_bumper)
+            {
+                robot.servo_arm.setPosition(0.5);
+            }
+            if(gamepad1.left_bumper)
+            {
+                robot.servo_arm.setPosition(0);
+            }
+
+            robot.extensionMotor.setPower(gamepad1.right_stick_y);
+
+            if(gamepad1.dpad_up && !gamepad1.dpad_down)
+            {
+                robot.liftMotor.setPower(0.5);
+            }
+
+            else if(gamepad1.dpad_down && !gamepad1.dpad_up)
+            {
+                robot.liftMotor.setPower(-0.5);
+            }
+
+            else
+            {
+                robot.liftMotor.setPower(0.01);
+            }
+//            telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
+//            telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());
+//            telemetry.addData("rightBack", robot.rightMotorBack.getCurrentPosition());
+//            telemetry.addData("rightFront", robot.rightMotorFront.getCurrentPosition());
 
 
             telemetry.addData("Bumper1, Vlad e cel mai tare ", gamepad1.left_trigger);
+
+
             telemetry.addData("Bumper2, Victor e cel mai tare ", gamepad1.right_trigger);
-            telemetry.addData("right", right);
+            telemetry.addData("right, Croi e cel mai tare ", right);
             telemetry.addData("left", left);
             telemetry.update();
 
