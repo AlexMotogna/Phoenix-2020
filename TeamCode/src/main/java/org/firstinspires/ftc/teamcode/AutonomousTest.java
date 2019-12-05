@@ -37,8 +37,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
         int skystone = 0;
 
-        if(skystone == 1)
-        {
+        if(skystone == 1) {
             robot.navigation.Sliding(1,"Right");
             robot.navigation.drive(25,0.5);
             //colectare

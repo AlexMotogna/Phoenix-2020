@@ -28,67 +28,139 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
         robot.tensorDetectionClass.INITCAMERA();
 
+        int skystone = robot.tensorDetectionClass.TensorDetection() * -1;
+
+        if(skystone == 1) {
         waitForStart();
 
-        int skystone = robot.tensorDetectionClass.TensorDetection() * -1;
 
         if(skystone == -2) {
             skystone = 0;
         }
+        robot.navigation.Turn(180, 0.4);
 
-        if(skystone == 1) {
             robot.navigation.Sliding(1, "Left");
+
             robot.navigation.drive(25, 0.5);
-            //colectare
-            robot.navigation.drive(-10, -0.5);
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.grab();
+
+            robot.navigation.drive(-13, -0.5);
+
             robot.navigation.Turn(-90, 0.3);
+
             robot.navigation.drive(150, 0.7);
-            //lasare mineral
+
+            robot.navigation.release();
+
             robot.navigation.drive(-80, 0.7);
+
             robot.navigation.Turn(90, 0.3);
+
             robot.navigation.drive(10, 0.5);
-            //colectare
-            robot.navigation.drive(-10, -0.5);
+
+            robot.navigation.lift_sus(1);
+
+            robot.navigation.drive(3, 0.2);
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.grab();
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.drive(-13, -0.5);
+
             robot.navigation.Turn(-90, 0.3);
+
             robot.navigation.drive(100, 0.7);
-            //lasare
+
+            robot.navigation.release();
+
             robot.navigation.drive(-40, -0.7);
         }
 
         if(skystone == 0) {
             robot.navigation.drive(25, 0.5);
-            //colectare
-            robot.navigation.drive(-10, -0.5);
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.grab();
+
+            robot.navigation.drive(-13, -0.5);
+
             robot.navigation.Turn(-90, 0.3);
+
             robot.navigation.drive(140, 0.7);
-            //lasare mineral
+
+            robot.navigation.release();
+
             robot.navigation.drive(-180, 0.7); //functie Masalier
+
             robot.navigation.Turn(90, 0.3);
+
             robot.navigation.drive(10, 0.5);
-            //colectare
-            robot.navigation.drive(-10, -0.5);
+
+            robot.navigation.lift_sus(1);
+
+            robot.navigation.drive(3, 0.2);
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.grab();
+
+            robot.navigation.drive(-13, -0.5);
+
             robot.navigation.Turn(-90, 0.3);
+
             robot.navigation.drive(140, 0.7);
-            //lasare
+
+            robot.navigation.release();
+
             robot.navigation.drive(-40, -0.7);
         }
 
         if(skystone == -1) {
             robot.navigation.Sliding(1, "Right");
+
             robot.navigation.drive(25, 0.5);
-            //colectare
-            robot.navigation.drive(-10, -0.5);
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.grab();
+
+            robot.navigation.drive(-13, -0.5);
+
             robot.navigation.Turn(-90, 0.3);
+
             robot.navigation.drive(130, 0.7);
-            //lasare mineral
+
+            robot.navigation.release();
+
             robot.navigation.drive(-180, 0.7);
+
             robot.navigation.Turn(90, 0.3);
+
             robot.navigation.drive(10, 0.5);
-            //colectare
-            robot.navigation.drive(-10, -0.5);
+
+            robot.navigation.lift_sus(1);
+
+            robot.navigation.drive(3, 0.2);
+
+            robot.navigation.lift_jos(1);
+
+            robot.navigation.grab();
+
+            robot.navigation.drive(-13, -0.5);
+
             robot.navigation.Turn(-90, 0.3);
+
             robot.navigation.drive(180, 0.7);
-            //lasare
+
+            robot.navigation.release();
+
             robot.navigation.drive(-40, -0.7);
         }
 

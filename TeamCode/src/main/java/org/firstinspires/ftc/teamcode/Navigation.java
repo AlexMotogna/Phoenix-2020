@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -66,6 +67,21 @@ public class Navigation {
     {
         robot.servo_arm.setPosition(0);
     }
+
+    public void lift_sus(double time)
+    {
+        robot.liftMotor.setPower(0.5);
+        waitUntil(time);
+        robot.liftMotor.setPower(0);
+    }
+
+    public void lift_jos(double time)
+    {
+        robot.liftMotor.setPower(-0.5);
+        waitUntil(time);
+        robot.liftMotor.setPower(0);
+    }
+
 
     public void drive(int Target, double Speed){
 
@@ -279,9 +295,6 @@ public class Navigation {
             robot.leftMotorFront.setPower(0);
         }
     }
-
-
-
 
 
 }

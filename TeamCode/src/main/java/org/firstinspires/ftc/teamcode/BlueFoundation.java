@@ -29,7 +29,7 @@ public class BlueFoundation extends LinearOpMode implements OpModeAddition {
         robot.navigation.Sliding(1,"Left");
         robot.navigation.drive(25,0.5);
         //agatare fundatie
-        robot.navigation.drive(-25,-0.5);//robot.naviigation.marsalier(10,0.5);
+        robot.navigation.drive(-25,-0.5);//robot.navigation.marsalier(10,0.5);
         //desprindere fundatie
         robot.navigation.Sliding(3,"Right");
 

@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 import java.util.Arrays;
 
@@ -50,22 +51,19 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 left = -1;
 
 
-            if(gamepad1.dpad_right || gamepad1.dpad_left){
+            if(gamepad1.right_stick_x != 0){
 
-                if(gamepad1.dpad_right) in_ce_directie = 1;
-                else in_ce_directie = -1;
-
-                robot.leftMotorBack.setPower(in_ce_directie*(-0.3));
-                robot.leftMotorFront.setPower(in_ce_directie*(0.3));
-                robot.rightMotorBack.setPower(in_ce_directie*(0.3));
-                robot.rightMotorFront.setPower(in_ce_directie*(-0.3));
+                robot.leftMotorBack.setPower(in_ce_directie*(-gamepad1.right_stick_x));
+                robot.leftMotorFront.setPower(in_ce_directie*(gamepad1.right_stick_x));
+                robot.rightMotorBack.setPower(in_ce_directie*(gamepad1.right_stick_x));
+                robot.rightMotorFront.setPower(in_ce_directie*(-gamepad1.right_stick_x));
 
             }
             else {
-                robot.leftMotorBack.setPower(left);
-                robot.leftMotorFront.setPower(left);
-                robot.rightMotorBack.setPower(right);
-                robot.rightMotorFront.setPower(right);
+                robot.leftMotorBack.setPower(-left);
+                robot.leftMotorFront.setPower(-left);
+                robot.rightMotorBack.setPower(-right);
+                robot.rightMotorFront.setPower(-right);
             }
 
 
@@ -95,6 +93,34 @@ public class Control extends LinearOpMode implements OpModeAddition {
             {
                 robot.liftMotor.setPower(0.01);
             }
+
+            // catch servo1 - Y
+            if (gamepad1.y) {
+
+                robot.servo1.setPower(1);
+            }
+            else if (gamepad1.x){
+
+                robot.servo1.setPower(-1);
+            }
+
+            else {
+                robot.servo1.setPower(-0.2);
+            }
+
+            // catch servo2 - B
+            if (gamepad1.b) {
+
+                robot.servo2.setPower(-1);
+            }
+            else if (gamepad1.a) {
+
+                robot.servo2.setPower(1);
+
+            }
+            else {
+                robot.servo2.setPower(0);
+            }
 //            telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
 //            telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());
 //            telemetry.addData("rightBack", robot.rightMotorBack.getCurrentPosition());
@@ -106,7 +132,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
             telemetry.addData("Bumper2, Victor e cel mai tare ", gamepad1.right_trigger);
             telemetry.addData("right, Croi e cel mai tare ", right);
-            telemetry.addData("left", left);
+            telemetry.addData("left, Afra e cel mai tare ", left);
             telemetry.update();
 
         }
