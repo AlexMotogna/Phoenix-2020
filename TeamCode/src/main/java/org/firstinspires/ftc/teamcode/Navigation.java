@@ -201,31 +201,27 @@ public class Navigation {
     public void Turn ( double angle, double speed )
     {
         ResetAngle();
-        if (angle > 0)
+        if (angle < 0)
         {
             robot.leftMotorFront.setPower(speed);
             robot.leftMotorBack.setPower(speed);
             robot.rightMotorFront.setPower(-speed);
             robot.rightMotorBack.setPower(-speed);
 
-            while(opMode.isOpModeIsActive() && robot.navigation.getAngle() == 0) {}
-
-            while(opMode.isOpModeIsActive() && getAngle() < angle)
+            while(opMode.isOpModeIsActive() && getAngle() > angle)
             {
                 telemetry.addData("unghi: ", getAngle());
                 telemetry.update();
             }
         }
-        if (angle < 0)
+        if (angle > 0)
         {
             robot.leftMotorFront.setPower(-speed);
             robot.leftMotorBack.setPower(-speed);
             robot.rightMotorFront.setPower(speed);
             robot.rightMotorBack.setPower(speed);
 
-            while(opMode.isOpModeIsActive() && robot.navigation.getAngle() == 0) {}
-
-            while(opMode.isOpModeIsActive() && getAngle() > angle)
+            while(opMode.isOpModeIsActive() && getAngle() < angle)
             {
                 telemetry.addData("unghi: ", getAngle());
                 telemetry.update();

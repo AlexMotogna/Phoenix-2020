@@ -31,8 +31,8 @@ public class Hardware {
     public ModernRoboticsI2cRangeSensor distance_fata2 = null;
     public ModernRoboticsI2cRangeSensor distance_spate = null;
     public Servo servo_arm = null;
-    public CRServo servo1 = null;
-    public CRServo servo2 = null;
+    public Servo servo1 = null;
+    public Servo servo2 = null;
 
     public ConceptTensorFlowObjectDetection tensorflow = null;
 
@@ -54,8 +54,8 @@ public class Hardware {
 
         extensionMotor = hmap.get(DcMotor.class, "extension_motor");
 
-        leftMotorBack.setDirection(DcMotor.Direction.REVERSE);
-        leftMotorFront.setDirection(DcMotor.Direction.REVERSE);
+        rightMotorBack.setDirection(DcMotor.Direction.REVERSE);
+        rightMotorFront.setDirection(DcMotor.Direction.REVERSE);
 
         leftMotorBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotorBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -77,8 +77,14 @@ public class Hardware {
         navigation = new Navigation(this);
         tensorDetectionClass = new TensorDetectionClass(this);
         servo_arm = hmap.get(Servo.class,"servo_arm");
-        servo1 = hmap.get(CRServo.class, "servo1");
-        servo2 = hmap.get(CRServo.class, "servo2");
+        servo1 = hmap.get(Servo.class, "servo1");
+        servo2 = hmap.get(Servo.class, "servo2");
         imu = hmap.get(BNO055IMU.class, "imu");
+
+        servo1.setDirection(Servo.Direction.REVERSE);
+
+        servo1.setPosition(0);
+        servo2.setPosition(1);
+
     }
 }

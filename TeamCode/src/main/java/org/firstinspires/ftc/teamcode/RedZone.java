@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "RedZone",group = "Pushbot")
+@Disabled
 
 public class RedZone extends LinearOpMode implements OpModeAddition {
 
@@ -30,16 +32,19 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
         int skystone = robot.tensorDetectionClass.TensorDetection() * -1;
 
-        if(skystone == 1) {
+
         waitForStart();
 
 
-        if(skystone == -2) {
+        if(skystone == -2)
             skystone = 0;
-        }
-        robot.navigation.Turn(180, 0.4);
 
-            robot.navigation.Sliding(1, "Left");
+        robot.navigation.Turn(180, 0.4);
+        robot.navigation.lift_sus(1);
+
+        if(skystone == 1)
+        {
+            robot.navigation.Sliding(1, "Right");
 
             robot.navigation.drive(25, 0.5);
 
@@ -55,7 +60,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.release();
 
-            robot.navigation.drive(-80, 0.7);
+            robot.navigation.drive(-80, -0.7);
 
             robot.navigation.Turn(90, 0.3);
 
@@ -68,8 +73,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
             robot.navigation.lift_jos(1);
 
             robot.navigation.grab();
-
-            robot.navigation.lift_jos(1);
 
             robot.navigation.drive(-13, -0.5);
 
@@ -97,7 +100,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.release();
 
-            robot.navigation.drive(-180, 0.7); //functie Masalier
+            robot.navigation.drive(-180, -0.7);
 
             robot.navigation.Turn(90, 0.3);
 
@@ -123,7 +126,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         }
 
         if(skystone == -1) {
-            robot.navigation.Sliding(1, "Right");
+            robot.navigation.Sliding(1, "Left");
 
             robot.navigation.drive(25, 0.5);
 
@@ -139,7 +142,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.release();
 
-            robot.navigation.drive(-180, 0.7);
+            robot.navigation.drive(-180, -0.7);
 
             robot.navigation.Turn(90, 0.3);
 

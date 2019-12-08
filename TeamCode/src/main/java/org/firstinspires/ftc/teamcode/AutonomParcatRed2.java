@@ -1,12 +1,16 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.Path;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-@Autonomous(name = "BlueFoundation",group = "Pushbot")
-@Disabled
-public class BlueFoundation extends LinearOpMode implements OpModeAddition {
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+@Autonomous(name="AutonomousParcRed2", group="Pushbot")
+
+public class AutonomParcatRed2 extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
 
@@ -21,18 +25,11 @@ public class BlueFoundation extends LinearOpMode implements OpModeAddition {
         robot.init(hardwareMap);
         robot.navigation.setOpModeAddition(this);
         robot.navigation.setHardwareMap(hardwareMap);
-        robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
-        robot.navigation.resetEncoders();
-        robot.navigation.imuInit();
-
+//
         waitForStart();
-
-        robot.navigation.Sliding(1,"Left");
-        robot.navigation.drive(25,0.5);
-        //agatare fundatie
-        robot.navigation.drive(-25,-0.5);//robot.navigation.marsalier(10,0.5);
-        //desprindere fundatie
-        robot.navigation.Sliding(3,"Right");
+        robot.navigation.Sliding(3, "Left");
+        robot.navigation.drive(35, 0.3);
 
     }
+
 }

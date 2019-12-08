@@ -1,10 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name="RedFoundaation", group="Pushbot")
-
+@Disabled
 public class RedFoundation extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();

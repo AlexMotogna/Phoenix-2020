@@ -6,9 +6,9 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import java.util.Arrays;
 
-@TeleOp(name = "Control", group = "Control")
+@TeleOp(name = "NewControl", group = "TestControlSwitch")
 
-public class Control extends LinearOpMode implements OpModeAddition {
+public class NewControl extends LinearOpMode implements OpModeAddition{
 
     Hardware robot = new Hardware();
 
@@ -16,14 +16,16 @@ public class Control extends LinearOpMode implements OpModeAddition {
     double right;
     double speed;
     double direction;
-    int in_ce_directie;
+    int in_ce_directie = 1;
 
+    boolean switch_gamepad2_to_gamepad1 = false;
+    boolean switch_gamepad1_to_gamepad2 = false;
+    boolean change_gamepad1_with_gamepad2 = false;
 
     @Override
     public boolean isOpModeIsActive() {
         return opModeIsActive();
     }
-
 
     @Override
     public void runOpMode() {
@@ -49,13 +51,12 @@ public class Control extends LinearOpMode implements OpModeAddition {
             if (left < -1)
                 left = -1;
 
-
             if (gamepad1.right_stick_x != 0) {
 
-                robot.leftMotorBack.setPower(in_ce_directie * (-gamepad1.right_stick_x));
-                robot.leftMotorFront.setPower(in_ce_directie * (gamepad1.right_stick_x));
-                robot.rightMotorBack.setPower(in_ce_directie * (gamepad1.right_stick_x));
-                robot.rightMotorFront.setPower(in_ce_directie * (-gamepad1.right_stick_x));
+                robot.leftMotorBack.setPower(-gamepad1.right_stick_x);
+                robot.leftMotorFront.setPower(gamepad1.right_stick_x);
+                robot.rightMotorBack.setPower(gamepad1.right_stick_x);
+                robot.rightMotorFront.setPower(-gamepad1.right_stick_x);
 
             } else {
                 robot.leftMotorBack.setPower(left);
@@ -64,45 +65,38 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
+            // catch servo1 - Y
+            if (gamepad1.y) {
+                robot.servo1.setPosition(1 - 0.1);
+            }
+            if (gamepad1.x) {
+                robot.servo1.setPosition(0);
+            }
 
-            //prins skystone
-            if (gamepad2.right_bumper) {
-                robot.servo_arm.setPosition(0.5);
+            // catch servo2 - B
+            if (gamepad1.b) {
+                robot.servo2.setPosition(0.29);
             }
-            if (gamepad2.left_bumper) {
+            if (gamepad1.a) {
+                robot.servo2.setPosition(1);
+            }
+
+            if (gamepad2.right_bumper)
+                robot.servo_arm.setPosition(0.7);
+            if (gamepad2.left_bumper)
                 robot.servo_arm.setPosition(0);
-            }
 
             robot.extensionMotor.setPower(gamepad2.right_stick_y);
 
-            if (gamepad2.dpad_up && !gamepad2.dpad_down) {
-                robot.liftMotor.setPower(0.5);
-            } else if (gamepad2.dpad_down && !gamepad2.dpad_up) {
-                robot.liftMotor.setPower(-0.5);
+            if (gamepad2.dpad_up) {
+                robot.liftMotor.setPower(1);
+            } else if (gamepad2.dpad_down) {
+                robot.liftMotor.setPower(-1);
             } else {
                 robot.liftMotor.setPower(0);
             }
 
-            // catch servo1 - Y
-            if (gamepad1.y) {
 
-                robot.servo1.setPosition(1);
-            }
-            if (gamepad1.x) {
-
-                robot.servo1.setPosition(0);
-            }
-
-            // catch servo2 - B1358\09876543ffd
-            if (gamepad1.b) {
-
-                robot.servo2.setPosition(1);
-            }
-            if (gamepad1.a) {
-
-                robot.servo2.setPosition(0);
-
-            }
 
             telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
             telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());

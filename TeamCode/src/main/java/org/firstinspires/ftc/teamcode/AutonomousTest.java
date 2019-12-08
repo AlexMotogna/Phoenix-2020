@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @Autonomous(name="AutonomousTest", group="Pushbot")
+@Disabled
 
 public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
