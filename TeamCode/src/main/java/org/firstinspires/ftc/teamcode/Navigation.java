@@ -61,8 +61,19 @@ public class Navigation {
 
     public void grab()
     {
+        robot.servo_arm.setPosition(0);
+        robot.liftMotor.setPower(-1);
+        waitUntil(0.8);
+        robot.liftMotor.setPower(0);
+        robot.extensionMotor.setPower(-1);
+        waitUntil(0.5);
+        robot.extensionMotor.setPower(0);
+        robot.liftMotor.setPower(1);
+        waitUntil(0.7);
+        robot.liftMotor.setPower(0);
         robot.servo_arm.setPosition(0.5);
     }
+
     public void release()
     {
         robot.servo_arm.setPosition(0);
@@ -259,38 +270,45 @@ public class Navigation {
         robot.leftMotorFront.setPower(0);
 
     }
-    public void Sliding(double Time, String Direction)
+    public void Sliding(double Time, double Speed)
     {
-        if(Direction == "Right")
-        {
-            robot.leftMotorBack.setPower(0.3);
-            robot.leftMotorFront.setPower(-0.3);
-            robot.rightMotorBack.setPower(-0.3);
-            robot.rightMotorFront.setPower(0.3);
+        // negativ la dreapta
+        // pozitiv la stanga
 
-            waitUntil(Time);
+//        ElapsedTime timp = new ElapsedTime();
 
-            robot.rightMotorBack.setPower(0);
-            robot.leftMotorBack.setPower(0);
-            robot.rightMotorFront.setPower(0);
-            robot.leftMotorFront.setPower(0);
-        }
-        else
-        if(Direction == "Left")
-        {
-            robot.leftMotorBack.setPower(-0.3);
-            robot.leftMotorFront.setPower(0.3);
-            robot.rightMotorBack.setPower(0.3);
-            robot.rightMotorFront.setPower(-0.3);
+//        double viteza = 0;
 
-            waitUntil(Time);
+//        while(timp.seconds() <= Time) {
 
-            robot.rightMotorBack.setPower(0);
-            robot.leftMotorBack.setPower(0);
-            robot.rightMotorFront.setPower(0);
-            robot.leftMotorFront.setPower(0);
-        }
+//            viteza = timp.seconds()*0.1;
+//            if(viteza > 0.5) viteza = 0.5;
+
+            robot.leftMotorBack.setPower(Speed);
+            robot.leftMotorFront.setPower(-Speed);
+            robot.rightMotorBack.setPower(-Speed);
+            robot.rightMotorFront.setPower(Speed);
+
+
+//        }
+        waitUntil(Time);
+
+
+        robot.rightMotorBack.setPower(0);
+        robot.leftMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+        robot.leftMotorFront.setPower(0);
+
     }
 
+    public void Catch (){
+        robot.servoMotor.setPower(-0.3);
+    }
+
+    public void DontCatch () {
+        robot.servoMotor.setPower(1);
+        waitUntil(0.1);
+        robot.servoMotor.setPower(0);
+    }
 
 }

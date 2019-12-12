@@ -27,7 +27,7 @@ public class AutonomParcatRed2 extends LinearOpMode implements OpModeAddition {
         robot.navigation.setHardwareMap(hardwareMap);
 //
         waitForStart();
-        robot.navigation.Sliding(3, "Left");
+        robot.navigation.Sliding(3, 0.3);
         robot.navigation.drive(35, 0.3);
 
     }

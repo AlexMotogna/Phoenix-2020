@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "BlueFoundation",group = "Pushbot")
-@Disabled
+
 public class BlueFoundation extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
@@ -27,12 +27,20 @@ public class BlueFoundation extends LinearOpMode implements OpModeAddition {
 
         waitForStart();
 
-        robot.navigation.Sliding(1,"Left");
-        robot.navigation.drive(25,0.5);
-        //agatare fundatie
-        robot.navigation.drive(-25,-0.5);//robot.navigation.marsalier(10,0.5);
-        //desprindere fundatie
-        robot.navigation.Sliding(3,"Right");
+        robot.navigation.drive(-2, -0.2);
+        robot.navigation.Sliding(2,-0.3);
+        robot.navigation.drive(-34,-0.2);
+        robot.navigation.Catch();
+        robot.navigation.waitUntil(1);
+        robot.navigation.drive(40,0.2);
+        robot.navigation.Turn(75, 0.3);
+        robot.navigation.drive(-13, -0.5);
+        robot.navigation.DontCatch();
+        // negativ la dreapta
+        // pozitiv la stanga
+//        robot.navigation.Sliding(1.5 , -0.3); //PARCARE LA PERETE
+        robot.navigation.Sliding(1.6, 0.3); //PARCARE LA POD
+        robot.navigation.drive(50, 0.5);
 
     }
 }

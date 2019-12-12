@@ -39,7 +39,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
         int skystone = 0;
 
         if(skystone == 1) {
-            robot.navigation.Sliding(1,"Right");
+            robot.navigation.Sliding(1,0.3);
             robot.navigation.drive(25,0.5);
             //colectare
             robot.navigation.drive(-10, -0.5);
@@ -78,7 +78,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
         if(skystone == -1)
         {
-            robot.navigation.Sliding(1,"Left");
+            robot.navigation.Sliding(1,0.3);
             robot.navigation.drive(25,0.5);
             //colectare
             robot.navigation.drive(-10, -0.5);
