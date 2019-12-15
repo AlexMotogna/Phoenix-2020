@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-@Autonomous(name="AutonomousParcBlue2", group="Pushbot")
+@Autonomous(name="ParcareBluePod", group="Pushbot")
 
 public class AutonomParcatBlue2 extends LinearOpMode implements OpModeAddition {
 
@@ -27,7 +27,7 @@ public class AutonomParcatBlue2 extends LinearOpMode implements OpModeAddition {
         robot.navigation.setHardwareMap(hardwareMap);
 //
         waitForStart();
-        robot.navigation.Sliding(3, 0.3);
+        robot.navigation.Sliding(3, -0.3);
         robot.navigation.drive(35, 0.3);
 
     }

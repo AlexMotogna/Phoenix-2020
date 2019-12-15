@@ -61,22 +61,35 @@ public class Navigation {
 
     public void grab()
     {
-        robot.servo_arm.setPosition(0);
+
         robot.liftMotor.setPower(-1);
-        waitUntil(0.8);
+
+        waitUntil(1.4);
+
         robot.liftMotor.setPower(0);
-        robot.extensionMotor.setPower(-1);
+
+        robot.servo_arm.setPosition(0);
         waitUntil(0.5);
+
+        robot.extensionMotor.setPower(-1);
+
+        waitUntil(0.6);
+
         robot.extensionMotor.setPower(0);
         robot.liftMotor.setPower(1);
-        waitUntil(0.7);
+
+        waitUntil(1.2);
+
         robot.liftMotor.setPower(0);
-        robot.servo_arm.setPosition(0.5);
     }
 
-    public void release()
+    public void release() { robot.servo_arm.setPosition(0);}
+
+    public void STRANGE_L()
     {
-        robot.servo_arm.setPosition(0);
+        robot.servo_arm.setPosition(0.5);
+        waitUntil(1.5);
+
     }
 
     public void lift_sus(double time)

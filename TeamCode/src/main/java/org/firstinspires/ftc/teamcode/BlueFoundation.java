@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-@Autonomous(name = "BlueFoundation",group = "Pushbot")
+@Autonomous(name = "FoundationBluePod",group = "Pushbot")
 
 public class BlueFoundation extends LinearOpMode implements OpModeAddition {
 

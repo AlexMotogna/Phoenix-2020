@@ -34,6 +34,8 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
         while (opModeIsActive()) {
 
+            //miscarea pe gamepad1 speed = gamepad1.right_trigger - gamepad1.left_trigger
+//            speed = -gamepad1.right_stick_y;
             speed = gamepad1.right_trigger - gamepad1.left_trigger;
             direction = gamepad1.left_stick_x;
 
@@ -75,7 +77,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
             if(poz_servo > 0.5) poz_servo = 0.5;
             if(poz_servo < 0) poz_servo = 0;
             robot.servo_arm.setPosition(poz_servo);
-            telemetry.addData("servoul este ", poz_servo);
+            telemetry.addData("servoul este ", robot.servo_arm.getPosition());
 
             robot.extensionMotor.setPower(gamepad2.right_stick_y);
 
@@ -96,34 +98,14 @@ public class Control extends LinearOpMode implements OpModeAddition {
             }
             else robot.servoMotor.setPower(0);
 
-            // catch servo1 - Y
-//            if (gamepad1.y) {
-//
-//                robot.servo1.setPosition(1);
-//            }
-//            if (gamepad1.x) {
-//
-//                robot.servo1.setPosition(0);
-//            }
-
-            // catch servo2 - B1358\09876543ffd
-//            if (gamepad1.b) {
-//
-//                robot.servo2.setPosition(1);
-//            }
-//            if (gamepad1.a) {
-//
-//                robot.servo2.setPosition(0);
-//
-//            }
 
             telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
             telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());
             telemetry.addData("rightBack", robot.rightMotorBack.getCurrentPosition());
             telemetry.addData("rightFront", robot.rightMotorFront.getCurrentPosition());
 
-            telemetry.addData("Bumper1", gamepad1.left_trigger);
-            telemetry.addData("Bumper2", gamepad1.right_trigger);
+            telemetry.addData("left trigger", gamepad1.left_trigger);
+            telemetry.addData("right trigger", gamepad1.right_trigger);
             telemetry.addData("right", right);
             telemetry.addData("left", left);
 

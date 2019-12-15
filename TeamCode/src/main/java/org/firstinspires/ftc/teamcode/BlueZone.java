@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name="BlueZone", group="Pushbot")
-
+@Disabled
 public class BlueZone extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
@@ -26,8 +26,8 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
         waitForStart();
 
-//        robot.navigation.drive(70, 0.5);
+        robot.navigation.drive(30, 0.5);
         robot.navigation.grab();
-
+        robot.navigation.STRANGE_L();
     }
 }

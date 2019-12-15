@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-@Autonomous(name="AutonomousParcRed1", group="Pushbot")
+@Autonomous(name="ParcareRedPerete", group="Pushbot")
 
 public class AutonomParcatRed1 extends LinearOpMode implements OpModeAddition {
 

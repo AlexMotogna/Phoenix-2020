@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "BlueFoundationFata",group = "Pushbot")
-
+@Disabled
 public class BlueFoundationFata extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();

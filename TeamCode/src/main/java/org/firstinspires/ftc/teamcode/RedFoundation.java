@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-@Autonomous(name="RedFoundaation", group="Pushbot")
+@Autonomous(name="FoundationRedPod", group="Pushbot")
 
 public class RedFoundation extends LinearOpMode implements OpModeAddition {
 
@@ -38,8 +38,8 @@ public class RedFoundation extends LinearOpMode implements OpModeAddition {
         robot.navigation.DontCatch();
         // negativ la dreapta
         // pozitiv la stanga
-        robot.navigation.Sliding(1.5 , 0.3); //PARCARE LA PERETE
-//        robot.navigation.Sliding(1.3, -0.3); //PARCARE LA POD
+//        robot.navigation.Sliding(1.5 , 0.3); //PARCARE LA PERETE
+        robot.navigation.Sliding(1.3, -0.3); //PARCARE LA POD
         robot.navigation.drive(45, 0.5);
 
     }
