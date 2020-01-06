@@ -318,6 +318,12 @@ public class Navigation {
         robot.servoMotor.setPower(-0.3);
     }
 
+    public void CatchForStone (){
+        robot.servoMotor.setPower(-0.3);
+        waitUntil(0.5);
+        robot.servoMotor.setPower(0);
+    }
+
     public void DontCatch () {
         robot.servoMotor.setPower(1);
         waitUntil(0.1);
