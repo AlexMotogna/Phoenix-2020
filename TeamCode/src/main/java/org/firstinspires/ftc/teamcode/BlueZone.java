@@ -163,6 +163,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
        }
 
+       robot.loggerData.closeFile();
 
     }
 }

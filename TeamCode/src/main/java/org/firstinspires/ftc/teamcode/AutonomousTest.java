@@ -42,11 +42,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
         robot.navigation.drive(40, 0.1);
 
-        try {
-            robot.loggerData.writer.close();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        robot.loggerData.closeFile();
     }
 
 }

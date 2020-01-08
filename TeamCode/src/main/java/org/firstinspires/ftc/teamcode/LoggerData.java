@@ -90,5 +90,15 @@ public class LoggerData {
             e.printStackTrace();
         }
     }
+
+    public void closeFile() {
+
+        try {
+            writer.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
 }
 

@@ -22,7 +22,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.init(hardwareMap);
         robot.navigation.setOpModeAddition(this);
         robot.navigation.setHardwareMap(hardwareMap);
-       robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
+        robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
@@ -167,7 +167,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         }
 
 
-
+        robot.loggerData.closeFile();
 
     }
 
