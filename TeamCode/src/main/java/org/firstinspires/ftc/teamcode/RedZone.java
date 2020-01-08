@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "RedZone",group = "Pushbot")
-@Disabled
+
 
 public class RedZone extends LinearOpMode implements OpModeAddition {
 
@@ -22,7 +22,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.init(hardwareMap);
         robot.navigation.setOpModeAddition(this);
         robot.navigation.setHardwareMap(hardwareMap);
-        robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
+       robot.navigation.setTelemetry(this, robot.tensorDetectionClass);
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
@@ -30,7 +30,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
         robot.tensorDetectionClass.INITCAMERA();
 
-        int skystone = robot.tensorDetectionClass.TensorDetection() * -1;
+        int skystone = 1;
 
 
         waitForStart();
@@ -39,50 +39,47 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         if(skystone == -2)
             skystone = 0;
 
-        robot.navigation.Turn(180, 0.4);
-        robot.navigation.lift_sus(1);
+//        robot.navigation.Turn(180, 0.4);
+//        robot.navigation.lift_sus(1);
 
         if(skystone == 1)
         {
-            robot.navigation.Sliding(1, 0.3);
 
-            robot.navigation.drive(25, 0.5);
+            robot.navigation.drive(-34, -0.3);
 
-            robot.navigation.lift_jos(1);
+            robot.navigation.CatchForStone();
 
-            robot.navigation.grab();
+            robot.navigation.waitUntil(0.5);
 
-            robot.navigation.drive(-13, -0.5);
+            robot.navigation.drive(9, 0.2);
 
-            robot.navigation.Turn(-90, 0.3);
+            robot.navigation.Turn(-69, 0.5);
 
-            robot.navigation.drive(150, 0.7);
+            robot.navigation.drive(-60, -0.6);
 
-            robot.navigation.release();
+            robot.navigation.DontCatch();
 
-            robot.navigation.drive(-80, -0.7);
+            robot.navigation.drive(83, 0.6);
 
-            robot.navigation.Turn(90, 0.3);
+            robot.navigation.Turn(80, 0.3);
 
-            robot.navigation.drive(10, 0.5);
+            robot.navigation.drive(-9, -0.2);
 
-            robot.navigation.lift_sus(1);
+            robot.navigation.waitUntil(0.5);
 
-            robot.navigation.drive(3, 0.2);
+            robot.navigation.CatchForStone();
 
-            robot.navigation.lift_jos(1);
+            robot.navigation.waitUntil(0.5);
 
-            robot.navigation.grab();
+            robot.navigation.drive(11, 0.2);
 
-            robot.navigation.drive(-13, -0.5);
+            robot.navigation.Turn(-74, 0.3);
 
-            robot.navigation.Turn(-90, 0.3);
+            robot.navigation.drive(-90, -0.6);
 
-            robot.navigation.drive(100, 0.7);
+            robot.navigation.DontCatch();
 
-            robot.navigation.release();
-
-            robot.navigation.drive(-40, -0.7);
+            robot.navigation.drive(25, 0.6);
         }
 
         if(skystone == 0) {
