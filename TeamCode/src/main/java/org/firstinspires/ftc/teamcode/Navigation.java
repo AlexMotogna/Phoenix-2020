@@ -314,6 +314,38 @@ public class Navigation {
 
     }
 
+    public void Sliding_45_Dreapta(double Time, double Speed)
+    {
+        robot.leftMotorBack.setPower(0);
+        robot.leftMotorFront.setPower(Speed);
+        robot.rightMotorBack.setPower(Speed);
+        robot.rightMotorFront.setPower(0);
+
+//        }
+        waitUntil(Time);
+
+        robot.rightMotorBack.setPower(0);
+        robot.leftMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+        robot.leftMotorFront.setPower(0);
+    }
+
+    public void Sliding_45_Stanga(double Time, double Speed)
+    {
+        robot.leftMotorBack.setPower(Speed);
+        robot.leftMotorFront.setPower(0);
+        robot.rightMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(Speed);
+
+//        }
+        waitUntil(Time);
+
+        robot.rightMotorBack.setPower(0);
+        robot.leftMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+        robot.leftMotorFront.setPower(0);
+    }
+
     public void Catch (){
         robot.servoMotor.setPower(-0.3);
     }
