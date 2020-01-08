@@ -26,6 +26,8 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
+        robot.loggerData.generateLogFile("RedZone");
+
         robot.tensorDetectionClass.setOpModeAddition(this);
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
         robot.tensorDetectionClass.INITCAMERA();
