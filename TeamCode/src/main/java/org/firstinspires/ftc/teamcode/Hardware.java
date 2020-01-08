@@ -37,7 +37,7 @@ public class Hardware {
     public Servo servo2 = null;
 
     public ConceptTensorFlowObjectDetection tensorflow = null;
-
+    public LoggerData loggerData = null;
 
 
     public Hardware(){
@@ -82,6 +82,7 @@ public class Hardware {
 //        distance_fata2 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor2");
         navigation = new Navigation(this);
         tensorDetectionClass = new TensorDetectionClass(this);
+        loggerData = new LoggerData(this);
         servo_arm = hmap.get(Servo.class,"servo_arm");
 //        servo1 = hmap.get(Servo.class, "servo1");
 //        servo2 = hmap.get(Servo.class, "servo2");

@@ -128,8 +128,12 @@ public class Navigation {
         robot.rightMotorFront.setPower(Speed);
         robot.leftMotorFront.setPower(Speed);
 
+        robot.loggerData.navigation_function = 1;
+
         while(robot.leftMotorBack.isBusy() && robot.rightMotorBack.isBusy() && robot.leftMotorFront.isBusy() && robot.rightMotorFront.isBusy() && opMode.isOpModeIsActive()){
-//
+
+            robot.loggerData.writeLogLine();
+
 //            telemetry.addData("right_encoder_front", robot.rightMotorFront.getCurrentPosition());
 //            telemetry.addData("right_encoder_back", robot.rightMotorBack.getCurrentPosition());
 //            telemetry.addData("left_motor_back", robot.leftMotorBack.getCurrentPosition());
@@ -224,6 +228,9 @@ public class Navigation {
 
     public void Turn ( double angle, double speed )
     {
+
+        robot.loggerData.navigation_function = 2;
+
         ResetAngle();
         if (angle < 0)
         {
@@ -234,6 +241,9 @@ public class Navigation {
 
             while(opMode.isOpModeIsActive() && getAngle() > angle)
             {
+
+                robot.loggerData.writeLogLine();
+
                 telemetry.addData("unghi: ", getAngle());
                 telemetry.update();
             }
@@ -247,6 +257,9 @@ public class Navigation {
 
             while(opMode.isOpModeIsActive() && getAngle() < angle)
             {
+
+                robot.loggerData.writeLogLine();
+
                 telemetry.addData("unghi: ", getAngle());
                 telemetry.update();
             }
@@ -288,24 +301,21 @@ public class Navigation {
         // negativ la dreapta
         // pozitiv la stanga
 
-//        ElapsedTime timp = new ElapsedTime();
+        robot.loggerData.navigation_function = 3;
 
-//        double viteza = 0;
-
-//        while(timp.seconds() <= Time) {
-
-//            viteza = timp.seconds()*0.1;
-//            if(viteza > 0.5) viteza = 0.5;
-
-            robot.leftMotorBack.setPower(Speed);
-            robot.leftMotorFront.setPower(-Speed);
-            robot.rightMotorBack.setPower(-Speed);
-            robot.rightMotorFront.setPower(Speed);
+        robot.leftMotorBack.setPower(Speed);
+        robot.leftMotorFront.setPower(-Speed);
+        robot.rightMotorBack.setPower(-Speed);
+        robot.rightMotorFront.setPower(Speed);
 
 
-//        }
-        waitUntil(Time);
+        ElapsedTime time = new ElapsedTime();
 
+        while(time.seconds() <= Time && opMode.isOpModeIsActive()) {
+
+            robot.loggerData.writeLogLine();
+
+        }
 
         robot.rightMotorBack.setPower(0);
         robot.leftMotorBack.setPower(0);

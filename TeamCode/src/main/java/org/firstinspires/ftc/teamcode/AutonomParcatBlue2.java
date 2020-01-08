@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @Autonomous(name="ParcareBluePod", group="Pushbot")
-
+@Disabled
 public class AutonomParcatBlue2 extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();

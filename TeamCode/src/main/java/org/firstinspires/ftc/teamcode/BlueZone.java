@@ -24,6 +24,8 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
+        robot.loggerData.generateLogFile("BlueZone");
+
         robot.tensorDetectionClass.setOpModeAddition(this);
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
         robot.tensorDetectionClass.INITCAMERA();
