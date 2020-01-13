@@ -32,11 +32,12 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
         robot.tensorDetectionClass.INITCAMERA();
 
-        int skystone = 1;
+        int skystone = robot.tensorDetectionClass.TensorDetection();
 
 
         waitForStart();
 
+        telemetry.addData("pozitia este ", skystone);
 
         if(skystone == -2)
             skystone = 0;
@@ -47,6 +48,10 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         if(skystone == 1)
         {
 
+//            robot.navigation.drive(-8,-0.3);
+
+//            robot.navigation.Sliding(1, -0.3);
+
             robot.navigation.drive(-34, -0.3);
 
             robot.navigation.CatchForStone();
@@ -55,13 +60,93 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(9, 0.2);
 
-            robot.navigation.Turn(-69, 0.5);
+            robot.navigation.Turn(-67, 0.5);
+
+            robot.navigation.drive(-55, -0.6);
+
+            robot.navigation.DontCatch();
+
+            robot.navigation.drive(83, 0.6);
+
+            robot.navigation.Turn(80, 0.3);
+
+            robot.navigation.drive(-9, -0.2);
+
+            robot.navigation.waitUntil(0.5);
+
+            robot.navigation.CatchForStone();
+
+            robot.navigation.waitUntil(0.5);
+
+            robot.navigation.drive(11, 0.2);
+
+            robot.navigation.Turn(-74, 0.3);
+
+            robot.navigation.drive(-85, -0.6);
+
+            robot.navigation.DontCatch();
+
+            robot.navigation.drive(25, 0.6);
+        }
+
+        if(skystone == 0) {
+//            robot.navigation.drive(-4,-0.3);
+
+//            robot.navigation.Sliding(1, 0.3);
+
+            robot.navigation.drive(-34, -0.3);
+
+            robot.navigation.CatchForStone();
+
+            robot.navigation.waitUntil(0.5);
+
+            robot.navigation.drive(9, 0.2);
+
+            robot.navigation.Turn(-70, 0.5);
+
+            robot.navigation.drive(-55, -0.6);
+
+            robot.navigation.DontCatch();
+
+            robot.navigation.drive(81, 0.6);
+
+            robot.navigation.Turn(80, 0.3);
+
+            robot.navigation.drive(-9, -0.2);
+
+            robot.navigation.waitUntil(0.5);
+
+            robot.navigation.CatchForStone();
+
+            robot.navigation.waitUntil(0.5);
+
+            robot.navigation.drive(11, 0.2);
+
+            robot.navigation.Turn(-74, 0.3);
+
+            robot.navigation.drive(-90, -0.6);
+
+            robot.navigation.DontCatch();
+
+            robot.navigation.drive(23, 0.6);
+        }
+
+        if(skystone == -1) {
+            robot.navigation.drive(-34, -0.3);
+
+            robot.navigation.CatchForStone();
+
+            robot.navigation.waitUntil(0.5);
+
+            robot.navigation.drive(9, 0.2);
+
+            robot.navigation.Turn(-67, 0.5);
 
             robot.navigation.drive(-60, -0.6);
 
             robot.navigation.DontCatch();
 
-            robot.navigation.drive(83, 0.6);
+            robot.navigation.drive(88, 0.6);
 
             robot.navigation.Turn(80, 0.3);
 
@@ -82,88 +167,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
             robot.navigation.DontCatch();
 
             robot.navigation.drive(25, 0.6);
-        }
 
-        if(skystone == 0) {
-            robot.navigation.drive(25, 0.5);
-
-            robot.navigation.lift_jos(1);
-
-            robot.navigation.grab();
-
-            robot.navigation.drive(-13, -0.5);
-
-            robot.navigation.Turn(-90, 0.3);
-
-            robot.navigation.drive(140, 0.7);
-
-            robot.navigation.release();
-
-            robot.navigation.drive(-180, -0.7);
-
-            robot.navigation.Turn(90, 0.3);
-
-            robot.navigation.drive(10, 0.5);
-
-            robot.navigation.lift_sus(1);
-
-            robot.navigation.drive(3, 0.2);
-
-            robot.navigation.lift_jos(1);
-
-            robot.navigation.grab();
-
-            robot.navigation.drive(-13, -0.5);
-
-            robot.navigation.Turn(-90, 0.3);
-
-            robot.navigation.drive(140, 0.7);
-
-            robot.navigation.release();
-
-            robot.navigation.drive(-40, -0.7);
-        }
-
-        if(skystone == -1) {
-            robot.navigation.Sliding(1, 0.3);
-
-            robot.navigation.drive(25, 0.5);
-
-            robot.navigation.lift_jos(1);
-
-            robot.navigation.grab();
-
-            robot.navigation.drive(-13, -0.5);
-
-            robot.navigation.Turn(-90, 0.3);
-
-            robot.navigation.drive(130, 0.7);
-
-            robot.navigation.release();
-
-            robot.navigation.drive(-180, -0.7);
-
-            robot.navigation.Turn(90, 0.3);
-
-            robot.navigation.drive(10, 0.5);
-
-            robot.navigation.lift_sus(1);
-
-            robot.navigation.drive(3, 0.2);
-
-            robot.navigation.lift_jos(1);
-
-            robot.navigation.grab();
-
-            robot.navigation.drive(-13, -0.5);
-
-            robot.navigation.Turn(-90, 0.3);
-
-            robot.navigation.drive(180, 0.7);
-
-            robot.navigation.release();
-
-            robot.navigation.drive(-40, -0.7);
         }
 
 

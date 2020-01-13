@@ -25,6 +25,8 @@ public class BlueFoundationFata extends LinearOpMode implements OpModeAddition {
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
+        robot.loggerData.generateLogFile("BlueFoundationFata");
+
         waitForStart();
 
 //        robot.navigation.drive(-2, -0.8);
@@ -41,6 +43,8 @@ public class BlueFoundationFata extends LinearOpMode implements OpModeAddition {
 //        robot.navigation.drive(30, 0.6);
 
           robot.navigation.Sliding(5, 0.5);
+
+          robot.loggerData.closeFile();
 
     }
 }

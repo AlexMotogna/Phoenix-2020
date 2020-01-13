@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name = "FoundationBluePerete",group = "Pushbot")
-@Disabled
+
 public class BlueFoundationPerete extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
@@ -25,6 +25,8 @@ public class BlueFoundationPerete extends LinearOpMode implements OpModeAddition
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
+        robot.loggerData.generateLogFile("FoundationBluePerete");
+
         waitForStart();
 
         robot.navigation.drive(-2, -0.2);
@@ -41,6 +43,6 @@ public class BlueFoundationPerete extends LinearOpMode implements OpModeAddition
         robot.navigation.Sliding(1.5 , -0.3); //PARCARE LA PERETE
 //        robot.navigation.Sliding(1.6, 0.3); //PARCARE LA POD
         robot.navigation.drive(50, 0.5);
-
+        robot.loggerData.closeFile();
     }
 }
