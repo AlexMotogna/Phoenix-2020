@@ -66,6 +66,12 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
+            if (gamepad1.x) {
+                robot.servo_stone.setPosition(1 - 0.1);
+            }
+            if (gamepad1.y) {
+                robot.servo_stone.setPosition(0);
+            }
 
             //prins skystone
             if (gamepad2.right_bumper) {
@@ -91,12 +97,12 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
 
             if(gamepad1.a){
-                robot.servoMotor.setPower(0.5);
+                robot.foundationMotor.setPower(0.5);
             }
             else if (gamepad1.b){
-                robot.servoMotor.setPower(-0.5);
+                robot.foundationMotor.setPower(-0.5);
             }
-            else robot.servoMotor.setPower(0);
+            else robot.foundationMotor.setPower(0);
 
 
             telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());

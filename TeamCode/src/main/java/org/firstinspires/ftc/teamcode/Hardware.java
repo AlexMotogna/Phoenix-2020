@@ -24,7 +24,7 @@ public class Hardware {
     public DcMotor rightMotorFront = null;
     public DcMotor liftMotor = null;
     public DcMotor extensionMotor = null;
-    public DcMotor servoMotor = null;
+    public DcMotor foundationMotor = null;
     public Navigation navigation = null;
     public TensorDetectionClass tensorDetectionClass = null;
 
@@ -35,6 +35,7 @@ public class Hardware {
     public Servo servo_arm = null;
     public Servo servo1 = null;
     public Servo servo2 = null;
+    public Servo servo_stone = null;
 
     public ConceptTensorFlowObjectDetection tensorflow = null;
     public LoggerData loggerData = null;
@@ -53,13 +54,13 @@ public class Hardware {
         leftMotorFront = hmap.get(DcMotor.class, "left_motor_front");
         rightMotorBack = hmap.get(DcMotor.class, "right_motor_back");
         rightMotorFront = hmap.get(DcMotor.class, "right_motor_front");
-        servoMotor = hmap.get(DcMotor.class, "servo_motor");
+        foundationMotor = hmap.get(DcMotor.class, "servo_motor");
         extensionMotor = hmap.get(DcMotor.class, "extension_motor");
 
         rightMotorBack.setDirection(DcMotor.Direction.REVERSE);
         rightMotorFront.setDirection(DcMotor.Direction.REVERSE);
         extensionMotor.setDirection(DcMotor.Direction.REVERSE);
-        servoMotor.setDirection(DcMotor.Direction.REVERSE);
+        foundationMotor.setDirection(DcMotor.Direction.REVERSE);
 
         leftMotorBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotorBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -67,7 +68,7 @@ public class Hardware {
         leftMotorFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         extensionMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        servoMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        foundationMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 
         leftMotorBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -76,7 +77,7 @@ public class Hardware {
         rightMotorFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         extensionMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        servoMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        foundationMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 //        distance_fata1 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor1");
 //        distance_fata2 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor2");

@@ -64,7 +64,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-55, -0.6);
 
-            robot.navigation.DontCatch();
+            robot.navigation.DontCatchForStone();
 
             robot.navigation.drive(83, 0.6);
 
@@ -84,7 +84,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-85, -0.6);
 
-            robot.navigation.DontCatch();
+            robot.navigation.DontCatchForStone();
 
             robot.navigation.drive(25, 0.6);
         }
@@ -106,7 +106,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-55, -0.6);
 
-            robot.navigation.DontCatch();
+            robot.navigation.DontCatchForStone();
 
             robot.navigation.drive(81, 0.6);
 
@@ -126,7 +126,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-90, -0.6);
 
-            robot.navigation.DontCatch();
+            robot.navigation.DontCatchForStone();
 
             robot.navigation.drive(23, 0.6);
         }
@@ -144,7 +144,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-60, -0.6);
 
-            robot.navigation.DontCatch();
+            robot.navigation.DontCatchForStone();
 
             robot.navigation.drive(88, 0.6);
 
@@ -164,7 +164,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-90, -0.6);
 
-            robot.navigation.DontCatch();
+            robot.navigation.DontCatchForStone();
 
             robot.navigation.drive(25, 0.6);
 

@@ -257,7 +257,6 @@ public class Navigation {
 
             while(opMode.isOpModeIsActive() && getAngle() < angle)
             {
-
                 robot.loggerData.writeLogLine();
 
                 telemetry.addData("unghi: ", getAngle());
@@ -296,6 +295,11 @@ public class Navigation {
         robot.leftMotorFront.setPower(0);
 
     }
+
+    public void SlideToDistance(int dist, double Speed) {
+
+    }
+
     public void Sliding(double Time, double Speed)
     {
         // negativ la dreapta
@@ -357,19 +361,25 @@ public class Navigation {
     }
 
     public void Catch (){
-        robot.servoMotor.setPower(-0.3);
+        robot.foundationMotor.setPower(-0.3);
     }
 
     public void CatchForStone (){
-        robot.servoMotor.setPower(-0.3);
+        robot.servo_stone.setPosition(-0.3);
         waitUntil(0.5);
-        robot.servoMotor.setPower(0);
+        robot.servo_stone.setPosition(-0.3);
     }
 
     public void DontCatch () {
-        robot.servoMotor.setPower(1);
+        robot.foundationMotor.setPower(1);
         waitUntil(0.1);
-        robot.servoMotor.setPower(0);
+        robot.foundationMotor.setPower(0);
+    }
+    
+    public void DontCatchForStone () {
+        robot.servo_stone.setPosition(-0.3);
+        waitUntil(0.1);
+        robot.servo_stone.setPosition(-0.3);
     }
 
 }
