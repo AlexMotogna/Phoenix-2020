@@ -365,9 +365,8 @@ public class Navigation {
     }
 
     public void CatchForStone (){
-        robot.servo_stone.setPosition(-0.3);
+        robot.servo_stone.setPosition(0.9);
         waitUntil(0.5);
-        robot.servo_stone.setPosition(-0.3);
     }
 
     public void DontCatch () {
@@ -379,7 +378,6 @@ public class Navigation {
     public void DontCatchForStone () {
         robot.servo_stone.setPosition(-0.3);
         waitUntil(0.1);
-        robot.servo_stone.setPosition(-0.3);
     }
 
 }

@@ -32,22 +32,25 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         robot.tensorDetectionClass.setHardwareMap(hardwareMap);
         robot.tensorDetectionClass.INITCAMERA();
 
-        int skystone = robot.tensorDetectionClass.TensorDetection();
+
 
 
         waitForStart();
 
+        int skystone = robot.tensorDetectionClass.TensorDetection();
+
         telemetry.addData("pozitia este ", skystone);
 
+        telemetry.update();
+
         if(skystone == -2)
-            skystone = 0;
+            skystone = -1;
 
 //        robot.navigation.Turn(180, 0.4);
 //        robot.navigation.lift_sus(1);
 
-        if(skystone == 1)
-        {
-
+        if(skystone == 1) {
+        // caz -1
 //            robot.navigation.drive(-8,-0.3);
 
 //            robot.navigation.Sliding(1, -0.3);
@@ -80,7 +83,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(11, 0.2);
 
-            robot.navigation.Turn(-74, 0.3);
+            robot.navigation.Turn(-80, 0.3);
 
             robot.navigation.drive(-85, -0.6);
 
@@ -90,6 +93,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         }
 
         if(skystone == 0) {
+            // caz 1
 //            robot.navigation.drive(-4,-0.3);
 
 //            robot.navigation.Sliding(1, 0.3);
@@ -122,7 +126,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(11, 0.2);
 
-            robot.navigation.Turn(-74, 0.3);
+            robot.navigation.Turn(-77, 0.3);
 
             robot.navigation.drive(-90, -0.6);
 
@@ -132,7 +136,12 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
         }
 
         if(skystone == -1) {
-            robot.navigation.drive(-34, -0.3);
+            // caz 0
+            robot.navigation.drive(-2,-0.2);
+
+            robot.navigation.Sliding(1,-0.3);
+
+            robot.navigation.drive(-32, -0.3);
 
             robot.navigation.CatchForStone();
 

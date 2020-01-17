@@ -85,6 +85,7 @@ public class Hardware {
         tensorDetectionClass = new TensorDetectionClass(this);
         loggerData = new LoggerData(this);
         servo_arm = hmap.get(Servo.class,"servo_arm");
+        servo_stone = hmap.get(Servo.class, "servo_stone");
 //        servo1 = hmap.get(Servo.class, "servo1");
 //        servo2 = hmap.get(Servo.class, "servo2");
         imu = hmap.get(BNO055IMU.class, "imu");

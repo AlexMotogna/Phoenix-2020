@@ -66,11 +66,11 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
-            if (gamepad1.x) {
-                robot.servo_stone.setPosition(1 - 0.1);
+            if (gamepad1.dpad_up) {
+                robot.servo_stone.setPosition(0.9);
             }
-            if (gamepad1.y) {
-                robot.servo_stone.setPosition(0);
+            if (gamepad1.dpad_down) {
+                robot.servo_stone.setPosition(-0.3);
             }
 
             //prins skystone
