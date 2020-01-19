@@ -106,56 +106,123 @@ public class TensorDetectionClass {
         int k = -2;
 
 
-        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 20) {
+        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 1.5) {
 
-                // getUpdatedRecognitions() will return null if no new information is available since
-                // the last time that call was made.
-                List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
-                if (updatedRecognitions != null) {
+            // getUpdatedRecognitions() will return null if no new information is available since
+            // the last time that call was made.
+            List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
+            if (updatedRecognitions != null) {
 
-                    // step through the list of recognitions and display boundary info.
-                    float leftstone = 0, skystone = 0;
+                // step through the list of recognitions and display boundary info.
+                float leftstone = 0, skystone = 0;
 
-                    for (Recognition recognition : updatedRecognitions) {
+                for (Recognition recognition : updatedRecognitions) {
 
-                        if (recognition.getLabel().equals("Skystone")) {
-                            skystone = recognition.getLeft();
-
-                        }
-                        else {
-                            leftstone = recognition.getLeft();
-                        }
+                    if (recognition.getLabel().equals("Skystone")) {
+                        skystone = recognition.getLeft();
 
                     }
-
-                    telemetry.addData("Skystoneul este ", skystone);
-
-                    if (updatedRecognitions.size() > 1) {
-
-                        if (skystone == 0 ) {
-                            k = 1;
-
-                        }
-
-                         else {
-                            if (leftstone < skystone) {
-                                k = 0;
-                            }
-                            else {
-                                k = -1;
-                            }
-                        }
-
+                    else {
+                        leftstone = recognition.getLeft();
                     }
+
                 }
 
-                telemetry.addData("f ", k);
-                telemetry.update();
+                telemetry.addData("Skystoneul este ", skystone);
+
+                if (updatedRecognitions.size() > 1) {
+
+                    if (skystone == 0 ) {
+                        k = 1;
+
+                    }
+
+                    else {
+                        if (leftstone < skystone) {
+                            k = 0;
+                        }
+                        else {
+                            k = -1;
+                        }
+                    }
+
+                }
             }
+
+            telemetry.addData("f ", k);
+            telemetry.update();
+        }
 
 
         return k;
 
     }
+
+    public int TensorDetectionRed() {
+
+        ElapsedTime time = new ElapsedTime();
+
+        telemetry.addData("AFISEAZA", "CEVA");
+        /**
+         * Activate TensorFlow Object Detection before we wait for the start command.
+         * Do it here so that the Camera Stream window will have the TensorFlow annotations visible.
+         **/
+
+
+        int k = -2;
+
+
+        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 1.5) {
+
+            // getUpdatedRecognitions() will return null if no new information is available since
+            // the last time that call was made.
+            List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
+            if (updatedRecognitions != null) {
+
+                // step through the list of recognitions and display boundary info.
+                float leftstone = 0, skystone = 0;
+
+                for (Recognition recognition : updatedRecognitions) {
+
+                    if (recognition.getLabel().equals("Skystone")) {
+                        skystone = recognition.getLeft();
+
+                    }
+                    else {
+                        leftstone = recognition.getLeft();
+                    }
+
+                }
+
+                telemetry.addData("Skystoneul este ", skystone);
+
+                if (updatedRecognitions.size() > 1) {
+
+                    if (skystone == 0 ) {
+                        k = -1;
+                    }
+
+                    else if (leftstone < skystone) {
+                        k = 1;
+                    }
+                    else {
+                        k = 0;
+
+
+                    }
+
+
+                }
+
+            }
+
+            telemetry.addData("f ", k);
+            telemetry.update();
+        }
+
+
+        return k;
+    }
+
 }
 

@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name="FoundationRedPod", group="Pushbot")
-@Disabled
+
 public class RedFoundation extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
@@ -25,6 +25,8 @@ public class RedFoundation extends LinearOpMode implements OpModeAddition {
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
+        robot.loggerData.generateLogFile("FoundationRed");
+
         waitForStart();
 
         robot.navigation.drive(-2, -0.2);
@@ -42,5 +44,6 @@ public class RedFoundation extends LinearOpMode implements OpModeAddition {
         robot.navigation.Sliding(1.3, -0.3); //PARCARE LA POD
         robot.navigation.drive(45, 0.5);
 
+        robot.loggerData.closeFile();
     }
 }

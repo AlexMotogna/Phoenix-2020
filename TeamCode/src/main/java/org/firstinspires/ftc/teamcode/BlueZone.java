@@ -38,6 +38,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
         telemetry.update();
 
+
         if(skystone == 0) {
             robot.navigation.drive(-34, -0.3);
 
@@ -123,7 +124,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
            robot.navigation.drive(-4,-0.3);
 
-           robot.navigation.Sliding(1, 0.3);
+           robot.navigation.Sliding(0.8, 0.3);
 
            robot.navigation.drive(-30, -0.3);
 

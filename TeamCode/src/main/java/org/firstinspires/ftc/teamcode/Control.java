@@ -17,6 +17,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
     double speed;
     double direction;
     double poz_servo = 0.5;
+    double servo_motor = 0;
 
 
     @Override
@@ -67,11 +68,18 @@ public class Control extends LinearOpMode implements OpModeAddition {
             }
 
             if (gamepad1.dpad_up) {
-                robot.servo_stone.setPosition(0.9);
+                servo_motor+=0.05;
             }
             if (gamepad1.dpad_down) {
-                robot.servo_stone.setPosition(-0.3);
+                servo_motor-=0.05 ;
             }
+
+            if(servo_motor > 0.65) servo_motor = 0.65;
+
+            if(servo_motor < 0) servo_motor = 0;
+
+            robot.servo_stone.setPosition(servo_motor);
+            telemetry.addData("servo motor ", servo_motor);
 
             //prins skystone
             if (gamepad2.right_bumper) {
@@ -83,6 +91,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
             if(poz_servo > 0.5) poz_servo = 0.5;
             if(poz_servo < 0) poz_servo = 0;
             robot.servo_arm.setPosition(poz_servo);
+
             telemetry.addData("servoul este ", robot.servo_arm.getPosition());
 
             robot.extensionMotor.setPower(gamepad2.right_stick_y);

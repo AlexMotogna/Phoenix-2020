@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name="FoundationRedPerete", group="Pushbot")
-@Disabled
+
 public class RedFoundationPerete extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
@@ -25,11 +25,14 @@ public class RedFoundationPerete extends LinearOpMode implements OpModeAddition 
         robot.navigation.resetEncoders();
         robot.navigation.imuInit();
 
+        robot.loggerData.generateLogFile("FoundationRedPerete");
+
         waitForStart();
 
+        robot.navigation.waitUntil(5);
         robot.navigation.drive(-2, -0.2);
-        robot.navigation.Sliding(2,0.3);
-        robot.navigation.drive(-34,-0.2);
+        robot.navigation.Sliding(1.5,0.3);
+        robot.navigation.drive(-37,-0.2);
         robot.navigation.Catch();
         robot.navigation.waitUntil(1);
         robot.navigation.drive(40,0.2);
@@ -41,6 +44,8 @@ public class RedFoundationPerete extends LinearOpMode implements OpModeAddition 
         robot.navigation.Sliding(1.5 , 0.3); //PARCARE LA PERETE
 //        robot.navigation.Sliding(1.3, -0.3); //PARCARE LA POD
         robot.navigation.drive(45, 0.5);
+
+        robot.loggerData.closeFile();
 
     }
 }
