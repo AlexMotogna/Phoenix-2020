@@ -22,7 +22,7 @@ public class Navigation {
 
     public HardwareMap hMap = null;
 
-    double reductie = 40*1.5; //pt motor 40:1
+    double reductie = 26*1.5; //pt motor 40:1
     double coutPerRev = 28; //count ul encoderului :)
     double wheelDiam = 4.0 * 2.54;
     double k = (reductie * coutPerRev) / (wheelDiam * 3.14);
@@ -284,7 +284,7 @@ public class Navigation {
         robot.leftMotorFront.setPower(Speed);
 
         if(dist > 0) {
-            while(((robot.distance_fata1.getDistance(DistanceUnit.CM) > dist) || (robot.distance_fata2.getDistance(DistanceUnit.CM) > dist)) && opMode.isOpModeIsActive()){
+            while(((robot.distance_right.getDistance(DistanceUnit.CM) > dist) || (robot.distance_left.getDistance(DistanceUnit.CM) > dist)) && opMode.isOpModeIsActive()){
 
             }
         }
@@ -296,9 +296,6 @@ public class Navigation {
 
     }
 
-    public void SlideToDistance(int dist, double Speed) {
-
-    }
 
     public void Sliding(double Time, double Speed)
     {
@@ -378,6 +375,42 @@ public class Navigation {
     public void DontCatchForStone () {
         robot.servo_stone.setPosition(0);
         waitUntil(0.5 );
+    }
+
+    public void SlideToDistance (int dist, double Speed, String Direction){
+
+        if(Speed < 0) Speed*=(-1);
+
+        if(Direction == "left"){
+
+            robot.rightMotorBack.setPower(Speed);
+            robot.leftMotorBack.setPower(-Speed);
+            robot.rightMotorFront.setPower(-Speed);
+            robot.leftMotorFront.setPower(Speed);
+
+            while ((robot.distance_left.getDistance(DistanceUnit.CM) > dist) && opMode.isOpModeIsActive()) {
+
+            }
+        }
+
+        else{
+            Speed*=(-1);
+
+            robot.rightMotorBack.setPower(Speed);
+            robot.leftMotorBack.setPower(-Speed);
+            robot.rightMotorFront.setPower(-Speed);
+            robot.leftMotorFront.setPower(Speed);
+
+            while ((robot.distance_right.getDistance(DistanceUnit.CM) > dist) && opMode.isOpModeIsActive()) {
+
+            }
+        }
+
+        robot.rightMotorBack.setPower(0);
+        robot.leftMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+        robot.leftMotorFront.setPower(0);
+
     }
 
 }

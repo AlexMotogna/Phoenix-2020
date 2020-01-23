@@ -29,8 +29,8 @@ public class Hardware {
     public TensorDetectionClass tensorDetectionClass = null;
 
     public BNO055IMU imu = null;
-    public ModernRoboticsI2cRangeSensor distance_fata1 = null;
-    public ModernRoboticsI2cRangeSensor distance_fata2 = null;
+    public ModernRoboticsI2cRangeSensor distance_right = null;
+    public ModernRoboticsI2cRangeSensor distance_left = null;
     public ModernRoboticsI2cRangeSensor distance_spate = null;
     public Servo servo_arm = null;
     public Servo servo1 = null;
@@ -57,8 +57,8 @@ public class Hardware {
         foundationMotor = hmap.get(DcMotor.class, "servo_motor");
         extensionMotor = hmap.get(DcMotor.class, "extension_motor");
 
-        rightMotorBack.setDirection(DcMotor.Direction.REVERSE);
-        rightMotorFront.setDirection(DcMotor.Direction.REVERSE);
+        leftMotorBack.setDirection(DcMotor.Direction.REVERSE);
+        leftMotorFront.setDirection(DcMotor.Direction.REVERSE);
         extensionMotor.setDirection(DcMotor.Direction.REVERSE);
         foundationMotor.setDirection(DcMotor.Direction.REVERSE);
 
@@ -79,8 +79,8 @@ public class Hardware {
         liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         foundationMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-//        distance_fata1 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor1");
-//        distance_fata2 = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor2");
+//        distance_right = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor_right");
+//        distance_left = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor_left");
         navigation = new Navigation(this);
         tensorDetectionClass = new TensorDetectionClass(this);
         loggerData = new LoggerData(this);

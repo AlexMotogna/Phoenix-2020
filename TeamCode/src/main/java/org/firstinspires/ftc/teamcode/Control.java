@@ -67,10 +67,10 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
-            if (gamepad1.dpad_up) {
+            if (gamepad1.dpad_down) {
                 servo_motor+=0.05;
             }
-            if (gamepad1.dpad_down) {
+            if (gamepad1.dpad_up) {
                 servo_motor-=0.05 ;
             }
 
@@ -88,6 +88,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
             if (gamepad2.left_bumper) {
                 poz_servo -= 0.1;
             }
+
             if(poz_servo > 0.5) poz_servo = 0.5;
             if(poz_servo < 0) poz_servo = 0;
             robot.servo_arm.setPosition(poz_servo);

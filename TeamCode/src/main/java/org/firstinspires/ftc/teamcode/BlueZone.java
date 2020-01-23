@@ -46,15 +46,15 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.waitUntil(0.5);
 
-            robot.navigation.drive(9, 0.2);
+            robot.navigation.drive(10, 0.2);
 
-            robot.navigation.Turn(67, 0.5);
+            robot.navigation.Turn(64, 0.5);
 
             robot.navigation.drive(-60, -0.6);
 
             robot.navigation.DontCatchForStone();
 
-            robot.navigation.drive(88, 0.6);
+            robot.navigation.drive(82, 0.8);
 
             robot.navigation.Turn(-80, 0.3);
 
@@ -66,15 +66,15 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.waitUntil(0.5);
 
-            robot.navigation.drive(11, 0.2);
+            robot.navigation.drive(9, 0.2);
 
-            robot.navigation.Turn(74, 0.3);
+            robot.navigation.Turn(73, 0.3);
 
             robot.navigation.drive(-90, -0.6);
 
             robot.navigation.DontCatchForStone();
 
-            robot.navigation.drive(25, 0.6);
+            robot.navigation.drive(23, 0.6);
         }
 
        else if (skystone == -1){
@@ -91,13 +91,13 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
            robot.navigation.drive(9, 0.2);
 
-           robot.navigation.Turn(67, 0.5);
+           robot.navigation.Turn(63, 0.5);
 
-           robot.navigation.drive(-55, -0.6);
+           robot.navigation.drive(-45, -0.6);
 
            robot.navigation.DontCatchForStone();
 
-           robot.navigation.drive(83, 0.6);
+           robot.navigation.drive(74, 0.6);
 
            robot.navigation.Turn(-80, 0.3);
 
@@ -134,15 +134,15 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
            robot.navigation.drive(9, 0.2);
 
-           robot.navigation.Turn(67, 0.5);
+           robot.navigation.Turn(65, 0.5);
 
            robot.navigation.drive(-55, -0.6);
 
            robot.navigation.DontCatchForStone();
 
-           robot.navigation.drive(35, 0.6);
+           robot.navigation.drive(40, 0.6);
 
-           robot.navigation.Turn(-80, 0.3);
+           robot.navigation.Turn(-76, 0.3);
 
            robot.navigation.drive(-9, -0.2);
 
@@ -156,11 +156,11 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
            robot.navigation.Turn(74, 0.3);
 
-           robot.navigation.drive(-40, -0.6);
+           robot.navigation.drive(-50, -0.6);
 
            robot.navigation.DontCatchForStone();
 
-           robot.navigation.drive(20, 0.6);
+           robot.navigation.drive(17, 0.6);
 
        }
 
