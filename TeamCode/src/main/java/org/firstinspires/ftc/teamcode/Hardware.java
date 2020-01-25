@@ -79,8 +79,8 @@ public class Hardware {
         liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         foundationMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-//        distance_right = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor_right");
-//        distance_left = hmap.get(ModernRoboticsI2cRangeSensor.class, "senzor_left");
+        distance_right = hmap.get(ModernRoboticsI2cRangeSensor.class, "sensor_right");
+        distance_left = hmap.get(ModernRoboticsI2cRangeSensor.class, "sensor_left");
         navigation = new Navigation(this);
         tensorDetectionClass = new TensorDetectionClass(this);
         loggerData = new LoggerData(this);

@@ -39,6 +39,8 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
         telemetry.update();
 
 
+        skystone = -1;
+
         if(skystone == 0) {
             robot.navigation.drive(-34, -0.3);
 
@@ -81,7 +83,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
            robot.navigation.drive(-8,-0.3);
 
-           robot.navigation.Sliding(1, -0.3);
+//           robot.navigation.Sliding(1, -0.3);
 
            robot.navigation.drive(-26, -0.3);
 
@@ -89,35 +91,35 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
            robot.navigation.waitUntil(0.5);
 
-           robot.navigation.drive(9, 0.2);
-
-           robot.navigation.Turn(63, 0.5);
-
-           robot.navigation.drive(-45, -0.6);
-
-           robot.navigation.DontCatchForStone();
-
-           robot.navigation.drive(74, 0.6);
-
-           robot.navigation.Turn(-80, 0.3);
-
-           robot.navigation.drive(-9, -0.2);
-
-           robot.navigation.waitUntil(0.5);
-
-           robot.navigation.CatchForStone();
-
-           robot.navigation.waitUntil(0.5);
-
            robot.navigation.drive(11, 0.2);
 
-           robot.navigation.Turn(74, 0.3);
+           robot.navigation.Turn(62, 0.5);
 
-           robot.navigation.drive(-85, -0.6);
+           robot.navigation.drive(-50, -0.4);
 
            robot.navigation.DontCatchForStone();
 
-           robot.navigation.drive(25, 0.6);
+           robot.navigation.drive(20, 0.5);
+
+//           robot.navigation.Turn(-80, 0.3);
+//
+//           robot.navigation.drive(-9, -0.2);
+//
+//           robot.navigation.waitUntil(0.5);
+//
+//           robot.navigation.CatchForStone();
+//
+//           robot.navigation.waitUntil(0.5);
+//
+//           robot.navigation.drive(11, 0.2);
+//
+//           robot.navigation.Turn(74, 0.3);
+//
+//           robot.navigation.drive(-85, -0.6);
+//
+//           robot.navigation.DontCatchForStone();
+//
+//           robot.navigation.drive(25, 0.6);
        }
 
        else {
@@ -163,6 +165,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
            robot.navigation.drive(17, 0.6);
 
        }
+
 
        robot.loggerData.closeFile();
 

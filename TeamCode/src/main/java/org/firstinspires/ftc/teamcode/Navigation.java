@@ -377,18 +377,28 @@ public class Navigation {
         waitUntil(0.5 );
     }
 
+    public void FrontCatch () {
+        robot.servo_arm.setPosition(0);
+        waitUntil(0.5);
+    }
+
+    public void FrontDontCatch () {
+        robot.servo_arm.setPosition(0.6);
+        waitUntil(0.5);
+    }
+
     public void SlideToDistance (int dist, double Speed, String Direction){
 
         if(Speed < 0) Speed*=(-1);
 
-        if(Direction == "left"){
+        if(Direction == "right"){
 
             robot.rightMotorBack.setPower(Speed);
             robot.leftMotorBack.setPower(-Speed);
             robot.rightMotorFront.setPower(-Speed);
             robot.leftMotorFront.setPower(Speed);
 
-            while ((robot.distance_left.getDistance(DistanceUnit.CM) > dist) && opMode.isOpModeIsActive()) {
+            while ((robot.distance_right.getDistance(DistanceUnit.CM) > dist) && opMode.isOpModeIsActive()) {
 
             }
         }
@@ -401,7 +411,7 @@ public class Navigation {
             robot.rightMotorFront.setPower(-Speed);
             robot.leftMotorFront.setPower(Speed);
 
-            while ((robot.distance_right.getDistance(DistanceUnit.CM) > dist) && opMode.isOpModeIsActive()) {
+            while ((robot.distance_left.getDistance(DistanceUnit.CM) > dist) && opMode.isOpModeIsActive()) {
 
             }
         }

@@ -30,7 +30,7 @@ public class RedFoundation extends LinearOpMode implements OpModeAddition {
         waitForStart();
 
         robot.navigation.drive(-2, -0.2);
-        robot.navigation.Sliding(2,0.3);
+        robot.navigation.Sliding(1.8,0.3);
         robot.navigation.drive(-34,-0.2);
         robot.navigation.Catch();
         robot.navigation.waitUntil(1);
@@ -41,7 +41,7 @@ public class RedFoundation extends LinearOpMode implements OpModeAddition {
         // negativ la dreapta
         // pozitiv la stanga
 //        robot.navigation.Sliding(1.5 , 0.3); //PARCARE LA PERETE
-        robot.navigation.Sliding(1.3, -0.3); //PARCARE LA POD
+        robot.navigation.Sliding(1.5, -0.3); //PARCARE LA POD
         robot.navigation.drive(45, 0.5);
 
         robot.loggerData.closeFile();

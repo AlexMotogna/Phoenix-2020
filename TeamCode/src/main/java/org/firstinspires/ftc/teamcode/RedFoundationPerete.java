@@ -29,7 +29,7 @@ public class RedFoundationPerete extends LinearOpMode implements OpModeAddition 
 
         waitForStart();
 
-        robot.navigation.waitUntil(5);
+//        robot.navigation.waitUntil(5);
         robot.navigation.drive(-2, -0.2);
         robot.navigation.Sliding(1.5,0.3);
         robot.navigation.drive(-37,-0.2);

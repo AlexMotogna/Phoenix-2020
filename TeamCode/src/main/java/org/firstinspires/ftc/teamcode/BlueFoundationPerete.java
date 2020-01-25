@@ -40,9 +40,9 @@ public class BlueFoundationPerete extends LinearOpMode implements OpModeAddition
         robot.navigation.DontCatch();
         // negativ la dreapta
         // pozitiv la stanga
-        robot.navigation.Sliding(1.3 , -0.3); //PARCARE LA PERETE
+        robot.navigation.Sliding(1 , -0.3); //PARCARE LA PERETE
 //        robot.navigation.Sliding(1.6, 0.3); //PARCARE LA POD
-        robot.navigation.drive(50, 0.5);
+        robot.navigation.drive(47, 0.5);
         robot.loggerData.closeFile();
     }
 }

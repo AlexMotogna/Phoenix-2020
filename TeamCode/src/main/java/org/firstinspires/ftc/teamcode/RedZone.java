@@ -50,6 +50,84 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 //        robot.navigation.lift_sus(1);
 
         if(skystone == -1) {
+
+            robot.navigation.drive(-8, -0.3);
+
+            robot.navigation.Sliding(1.5, -0.2);
+
+            robot.navigation.Turn(158, 0.2);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(25, 0.2);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-11, -0.3);
+
+            robot.navigation.Turn(-80, 0.2);
+
+            robot.navigation.drive(60, 0.3);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(-20, -0.3);
+        }
+
+        if(skystone == 1) {
+
+            robot.navigation.drive(-8, -0.3);
+
+            robot.navigation.Turn(158, 0.2);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(25, 0.2);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-11, -0.3);
+
+            robot.navigation.Turn(-78, 0.3);
+
+            robot.navigation.drive(40, 0.3);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(-20, -0.3);
+
+        }
+
+        if(skystone == 0) {
+
+            robot.navigation.drive(-8, -0.3);
+
+            robot.navigation.Sliding(1, -0.2);
+
+            robot.navigation.Turn(157, 0.2);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(25, 0.2);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-11, -0.3);
+
+            robot.navigation.Turn(-75, 0.3);
+
+            robot.navigation.drive(55, 0.3);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(-20, -0.3);
+        }
+
+
+        // aici se odihneste codul trecut
+
+        /*
+        if(skystone == -1) {
         // caz -1(1)
             robot.navigation.drive(-8,-0.3);
 
@@ -178,7 +256,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
             robot.navigation.drive(25, 0.6);
 
         }
-
+        */
 
         robot.loggerData.closeFile();
 

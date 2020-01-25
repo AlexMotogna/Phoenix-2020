@@ -11,7 +11,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import java.io.IOException;
 
 @Autonomous(name="AutonomousTest", group="Pushbot")
-@Disabled
+
 
 public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
@@ -42,7 +42,7 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
 //        robot.navigation.drive(40, 0.1);
 
-        robot.navigation.Sliding(3, 0.5);
+        robot.navigation.SlideToDistance(20, 0.2, "right");
 
         robot.loggerData.closeFile();
     }
