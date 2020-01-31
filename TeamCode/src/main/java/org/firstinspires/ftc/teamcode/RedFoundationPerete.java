@@ -31,7 +31,7 @@ public class RedFoundationPerete extends LinearOpMode implements OpModeAddition 
 
 //        robot.navigation.waitUntil(5);
         robot.navigation.drive(-2, -0.2);
-        robot.navigation.Sliding(1.5,0.3);
+        robot.navigation.Sliding(1.5,0.2);
         robot.navigation.drive(-37,-0.2);
         robot.navigation.Catch();
         robot.navigation.waitUntil(1);
@@ -41,7 +41,7 @@ public class RedFoundationPerete extends LinearOpMode implements OpModeAddition 
         robot.navigation.DontCatch();
         // negativ la dreapta
         // pozitiv la stanga
-        robot.navigation.Sliding(1.5 , 0.3); //PARCARE LA PERETE
+        robot.navigation.Sliding(1.5 , 0.2); //PARCARE LA PERETE
 //        robot.navigation.Sliding(1.3, -0.3); //PARCARE LA POD
         robot.navigation.drive(45, 0.5);
 

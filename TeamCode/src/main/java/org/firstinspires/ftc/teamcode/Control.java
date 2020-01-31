@@ -16,9 +16,9 @@ public class Control extends LinearOpMode implements OpModeAddition {
     double right;
     double speed;
     double direction;
-    double poz_servo = 0.5;
+    double poz_servo = 0;
     double servo_motor = 0;
-
+    double servo_rot = 0.5;
 
     @Override
     public boolean isOpModeIsActive() {
@@ -35,8 +35,9 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
         while (opModeIsActive()) {
 
-            //miscarea pe gamepad1 speed = gamepad1.right_trigger - gamepad1.left_trigger
+//            miscarea pe gamepad1 speed = gamepad1.right_trigger - gamepad1.left_trigger
 //            speed = -gamepad1.right_stick_y;
+
             speed = gamepad1.right_trigger - gamepad1.left_trigger;
             direction = gamepad1.left_stick_x;
 
@@ -89,7 +90,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 poz_servo -= 0.1;
             }
 
-            if(poz_servo > 0.7) poz_servo = 0.7;
+            if(poz_servo > 0.5) poz_servo = 0.5;
             if(poz_servo < 0) poz_servo = 0;
             robot.servo_arm.setPosition(poz_servo);
 
@@ -114,6 +115,21 @@ public class Control extends LinearOpMode implements OpModeAddition {
             }
             else robot.foundationMotor.setPower(0);
 
+
+
+            if(gamepad2.b){
+                servo_rot += 0.05;
+            }
+            else if(gamepad2.x){
+                servo_rot -= 0.05;
+            }
+
+            if(servo_rot > 1) servo_rot = 1;
+            if(servo_rot < 0.05)  servo_rot = 0.05;
+
+            robot.servo_rotatie.setPosition(servo_rot);
+
+            telemetry.addData("servo rotatie: ", servo_rot);
 
             telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
             telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());

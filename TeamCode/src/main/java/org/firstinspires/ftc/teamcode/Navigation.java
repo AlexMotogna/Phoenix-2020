@@ -22,7 +22,7 @@ public class Navigation {
 
     public HardwareMap hMap = null;
 
-    double reductie = 26*1.5; //pt motor 40:1
+    double reductie = 40*1.5; //pt motor 40:1
     double coutPerRev = 28; //count ul encoderului :)
     double wheelDiam = 4.0 * 2.54;
     double k = (reductie * coutPerRev) / (wheelDiam * 3.14);
@@ -378,12 +378,21 @@ public class Navigation {
     }
 
     public void FrontCatch () {
+        robot.extensionMotor.setPower(-0.5);
+        waitUntil(0.5);
+        robot.extensionMotor.setPower(0);
+        waitUntil(0.2);
         robot.servo_arm.setPosition(0);
         waitUntil(0.5);
     }
 
     public void FrontDontCatch () {
         robot.servo_arm.setPosition(0.6);
+        waitUntil(0.5);
+    }
+
+    public void servo_initial () {
+        robot.servo_rotatie.setPosition(0.5);
         waitUntil(0.5);
     }
 

@@ -36,6 +36,7 @@ public class Hardware {
     public Servo servo1 = null;
     public Servo servo2 = null;
     public Servo servo_stone = null;
+    public Servo servo_rotatie = null;
 
     public ConceptTensorFlowObjectDetection tensorflow = null;
     public LoggerData loggerData = null;
@@ -57,8 +58,10 @@ public class Hardware {
         foundationMotor = hmap.get(DcMotor.class, "servo_motor");
         extensionMotor = hmap.get(DcMotor.class, "extension_motor");
 
-        leftMotorBack.setDirection(DcMotor.Direction.REVERSE);
-        leftMotorFront.setDirection(DcMotor.Direction.REVERSE);
+//        leftMotorBack.setDirection(DcMotor.Direction.REVERSE); astea au reverse pt motoare gobilda
+//        leftMotorFront.setDirection(DcMotor.Direction.REVERSE);
+        rightMotorFront.setDirection(DcMotor.Direction.REVERSE);
+        rightMotorBack.setDirection(DcMotor.Direction.REVERSE);
         extensionMotor.setDirection(DcMotor.Direction.REVERSE);
         foundationMotor.setDirection(DcMotor.Direction.REVERSE);
 
@@ -86,6 +89,7 @@ public class Hardware {
         loggerData = new LoggerData(this);
         servo_arm = hmap.get(Servo.class,"servo_arm");
         servo_stone = hmap.get(Servo.class, "servo_stone");
+        servo_rotatie = hmap.get(Servo.class, "servo_rotatie");
 //        servo1 = hmap.get(Servo.class, "servo1");
 //        servo2 = hmap.get(Servo.class, "servo2");
         imu = hmap.get(BNO055IMU.class, "imu");
