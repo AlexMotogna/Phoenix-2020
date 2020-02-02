@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 @Autonomous(name="ParcareBluePerete", group="Pushbot")
-@Disabled
+
 public class AutonomParcatBlue1 extends LinearOpMode implements OpModeAddition {
 
     Hardware robot = new Hardware();
@@ -26,10 +26,11 @@ public class AutonomParcatBlue1 extends LinearOpMode implements OpModeAddition {
         robot.navigation.setOpModeAddition(this);
         robot.navigation.setHardwareMap(hardwareMap);
 //
+        robot.loggerData.generateLogFile("AutonomParcatPErete");
         waitForStart();
         robot.navigation.Sliding(0.5, -0.3);
         robot.navigation.drive(40, 0.3);
-
+        robot.loggerData.closeFile();
     }
 
 }

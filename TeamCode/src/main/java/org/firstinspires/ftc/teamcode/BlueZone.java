@@ -56,7 +56,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.FrontCatch();
 
-            robot.navigation.drive(-9, -0.3);
+            robot.navigation.drive(-8, -0.3);  // -8 pt pod, -35 pt perete
 
             robot.navigation.Turn(73, 0.2);
 
@@ -79,7 +79,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.FrontCatch();
 
-            robot.navigation.drive(-9, -0.3);
+            robot.navigation.drive(-8, -0.3);  // -8 pt pod, -35 pt perete
 
             robot.navigation.Turn(71, 0.3);
 
@@ -105,7 +105,7 @@ public class BlueZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.FrontCatch();
 
-            robot.navigation.drive(-9, -0.3);
+            robot.navigation.drive(-9, -0.3);  //-9 pt pod, -36 pt perete
 
             robot.navigation.Turn(73, 0.2);
 

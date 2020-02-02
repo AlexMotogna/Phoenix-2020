@@ -49,6 +49,88 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 //        robot.navigation.Turn(180, 0.4);
 //        robot.navigation.lift_sus(1);
 
+
+        if(skystone == -1) {
+
+            robot.navigation.drive(-8, -0.3);
+
+            robot.navigation.Sliding(2.7, -0.2);
+
+            robot.navigation.Turn(163, 0.3);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(25, 0.2);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-35, -0.3);
+
+            robot.navigation.Turn(-85, 0.3);
+
+            robot.navigation.drive(60, 0.7);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.servo_initial();
+
+            robot.navigation.drive(-20, -0.3);
+        }
+
+        if(skystone == 1) {
+
+            robot.navigation.drive(-8, -0.4);
+
+            robot.navigation.Turn(162, 0.4);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(25, 0.2);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-35, -0.3);
+
+            robot.navigation.Turn(-82, 0.3);
+
+            robot.navigation.drive(50, 0.7);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.servo_initial();
+
+            robot.navigation.drive(-25, -0.5);
+
+        }
+
+        if(skystone == 0) {
+
+            robot.navigation.drive(-8, -0.3);
+
+            robot.navigation.Sliding(2, -0.2);
+
+            robot.navigation.Turn(162, 0.2);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(25, 0.2);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-35 , -0.3);
+
+            robot.navigation.Turn(-80, 0.3);
+
+            robot.navigation.drive(55, 0.7);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.servo_initial();
+
+            robot.navigation.drive(-20, -0.3);
+        }
+
+        /*cod care merge si pe asta l punem
         if(skystone == -1) {
 
             robot.navigation.drive(-8, -0.3);
@@ -129,7 +211,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
             robot.navigation.drive(-20, -0.3);
         }
 
-
+         paana aici*/
         // aici se odihneste codul trecut
 
         /*

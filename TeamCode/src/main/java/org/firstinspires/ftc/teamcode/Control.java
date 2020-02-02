@@ -83,10 +83,10 @@ public class Control extends LinearOpMode implements OpModeAddition {
             telemetry.addData("servo motor ", servo_motor);
 
             //prins skystone
-            if (gamepad2.y) {
+            if (gamepad2.left_bumper) {
                 poz_servo += 0.1;
             }
-            if (gamepad2.a) {
+            if (gamepad2.right_bumper) {
                 poz_servo -= 0.1;
             }
 
@@ -117,15 +117,15 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
 
 
-            if(gamepad2.b){
-                servo_rot += 0.05;
+            if(gamepad2.x){
+                servo_rot = 0.5;
             }
-            else if(gamepad2.x){
-                servo_rot -= 0.05;
+            else if(gamepad2.y){
+                servo_rot = -1;
             }
-
-            if(servo_rot > 1) servo_rot = 1;
-            if(servo_rot < 0.05)  servo_rot = 0.05;
+            else if(gamepad2.a){
+                servo_rot = 1;
+            }
 
             robot.servo_rotatie.setPosition(servo_rot);
 

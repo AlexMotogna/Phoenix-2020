@@ -30,7 +30,7 @@ public class BlueFoundation extends LinearOpMode implements OpModeAddition {
         waitForStart();
 
         robot.navigation.drive(-2, -0.2);
-        robot.navigation.Sliding(2,-0.2);
+        robot.navigation.Sliding(4,-0.2);
         robot.navigation.drive(-34,-0.2);
         robot.navigation.Catch();
         robot.navigation.waitUntil(1);
