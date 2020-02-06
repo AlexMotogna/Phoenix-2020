@@ -52,44 +52,64 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
         if(skystone == -1) {
 
-            robot.navigation.drive(-8, -0.3);
+            robot.navigation.drive(8, 0.3);
 
-            robot.navigation.Sliding(2.7, -0.2);
+            robot.navigation.Sliding(3, 0.2);
 
-            robot.navigation.Turn(163, 0.3);
+//            robot.navigation.Turn(156, 0.5);
 
             robot.navigation.FrontDontCatch();
 
-            robot.navigation.drive(25, 0.2);
+            robot.navigation.drive(25, 0.4);
 
             robot.navigation.FrontCatch();
 
-            robot.navigation.drive(-35, -0.3);
+            robot.navigation.drive(-7, -0.3); //-35 langa perete
 
-            robot.navigation.Turn(-85, 0.3);
+            robot.navigation.Turn(-73, 0.4);
 
-            robot.navigation.drive(60, 0.7);
+            robot.navigation.drive(62, 0.9);
 
             robot.navigation.FrontDontCatch();
 
             robot.navigation.servo_initial();
 
-            robot.navigation.drive(-20, -0.3);
+            // al doiles stone
+
+            robot.navigation.drive(-45, -0.9);
+
+            robot.navigation.Turn(78, 0.5);
+
+            robot.navigation.drive(7, 0.5);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-5, 0.5);
+
+            robot.navigation.Turn(-76, 0.5);
+
+            robot.navigation.drive(50, 0.9);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(-15, -0.9);
+
+            robot.navigation.LasaManaJos();
         }
 
         if(skystone == 1) {
 
-            robot.navigation.drive(-8, -0.4);
+            robot.navigation.drive(8, 0.4);
 
-            robot.navigation.Turn(162, 0.4);
+//            robot.navigation.Turn(158, 0.4);
 
             robot.navigation.FrontDontCatch();
 
-            robot.navigation.drive(25, 0.2);
+            robot.navigation.drive(25, 0.4);
 
             robot.navigation.FrontCatch();
 
-            robot.navigation.drive(-35, -0.3);
+            robot.navigation.drive(-8, -0.3); //-35 pt perete
 
             robot.navigation.Turn(-82, 0.3);
 
@@ -99,35 +119,77 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.servo_initial();
 
-            robot.navigation.drive(-25, -0.5);
+            //al doilea stone
+
+            robot.navigation.drive(-78, -0.5);
+
+            robot.navigation.Turn(74, 0.4);
+
+            robot.navigation.drive(8, 0.4);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-8, 0.4);
+
+            robot.navigation.Turn(-80, 0.4);
+
+            robot.navigation.drive(80, 0.7);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(-15, 0.8);
+
+            robot.navigation.LasaManaJos();
 
         }
 
         if(skystone == 0) {
 
-            robot.navigation.drive(-8, -0.3);
+            robot.navigation.drive(8, 0.3);
 
-            robot.navigation.Sliding(2, -0.2);
+            robot.navigation.Sliding(2, 0.2);
 
-            robot.navigation.Turn(162, 0.2);
+//            robot.navigation.Turn(155, 0.4);
 
             robot.navigation.FrontDontCatch();
 
-            robot.navigation.drive(25, 0.2);
+            robot.navigation.drive(25, 0.4);
 
             robot.navigation.FrontCatch();
 
-            robot.navigation.drive(-35 , -0.3);
+            robot.navigation.drive(-8 , -0.5); //-35 pt perete
 
             robot.navigation.Turn(-80, 0.3);
 
-            robot.navigation.drive(55, 0.7);
+            robot.navigation.drive(55, 0.8);
 
             robot.navigation.FrontDontCatch();
 
             robot.navigation.servo_initial();
 
-            robot.navigation.drive(-20, -0.3);
+//            robot.navigation.drive(-20, -0.3);
+            //al doilea stone
+
+            robot.navigation.drive(-80, -0.8);
+
+            robot.navigation.Turn(74, 0.4);
+
+            robot.navigation.drive(8, 0.4);
+
+            robot.navigation.FrontCatch();
+
+            robot.navigation.drive(-8, 0.4);
+
+            robot.navigation.Turn(-81, 0.4);
+
+            robot.navigation.drive(80, 0.7);
+
+            robot.navigation.FrontDontCatch();
+
+            robot.navigation.drive(-15, 0.8);
+
+            robot.navigation.LasaManaJos();
+
         }
 
         /*cod care merge si pe asta l punem

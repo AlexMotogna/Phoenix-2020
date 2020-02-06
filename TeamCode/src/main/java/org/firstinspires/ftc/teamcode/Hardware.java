@@ -23,7 +23,6 @@ public class Hardware {
     public DcMotor rightMotorBack = null;
     public DcMotor rightMotorFront = null;
     public DcMotor liftMotor = null;
-    public DcMotor extensionMotor = null;
     public DcMotor foundationMotor = null;
     public Navigation navigation = null;
     public TensorDetectionClass tensorDetectionClass = null;
@@ -35,8 +34,9 @@ public class Hardware {
     public Servo servo_arm = null;
     public Servo servo1 = null;
     public Servo servo2 = null;
-    public Servo servo_stone = null;
+    public Servo servo_stone = null; //?
     public Servo servo_rotatie = null;
+    public CRServo servo_extension = null;
 
     public ConceptTensorFlowObjectDetection tensorflow = null;
     public LoggerData loggerData = null;
@@ -56,20 +56,17 @@ public class Hardware {
         rightMotorBack = hmap.get(DcMotor.class, "right_motor_back");
         rightMotorFront = hmap.get(DcMotor.class, "right_motor_front");
         foundationMotor = hmap.get(DcMotor.class, "servo_motor");
-        extensionMotor = hmap.get(DcMotor.class, "extension_motor");
 
 //        leftMotorBack.setDirection(DcMotor.Direction.REVERSE); astea au reverse pt motoare gobilda
 //        leftMotorFront.setDirection(DcMotor.Direction.REVERSE);
         rightMotorFront.setDirection(DcMotor.Direction.REVERSE);
         rightMotorBack.setDirection(DcMotor.Direction.REVERSE);
-        extensionMotor.setDirection(DcMotor.Direction.REVERSE);
         foundationMotor.setDirection(DcMotor.Direction.REVERSE);
 
         leftMotorBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotorBack.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightMotorFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftMotorFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        extensionMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         foundationMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
@@ -78,18 +75,19 @@ public class Hardware {
         rightMotorBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftMotorFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightMotorFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        extensionMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        extensionMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         foundationMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        distance_right = hmap.get(ModernRoboticsI2cRangeSensor.class, "sensor_right");
-        distance_left = hmap.get(ModernRoboticsI2cRangeSensor.class, "sensor_left");
+//        distance_right = hmap.get(ModernRoboticsI2cRangeSensor.class, "sensor_right");
+//        distance_left = hmap.get(ModernRoboticsI2cRangeSensor.class, "sensor_left");
         navigation = new Navigation(this);
         tensorDetectionClass = new TensorDetectionClass(this);
         loggerData = new LoggerData(this);
         servo_arm = hmap.get(Servo.class,"servo_arm");
-        servo_stone = hmap.get(Servo.class, "servo_stone");
+//        servo_stone = hmap.get(Servo.class, "servo_stone");
         servo_rotatie = hmap.get(Servo.class, "servo_rotatie");
+        servo_extension = hmap.get(CRServo.class, "servo_extension");
 //        servo1 = hmap.get(Servo.class, "servo1");
 //        servo2 = hmap.get(Servo.class, "servo2");
         imu = hmap.get(BNO055IMU.class, "imu");

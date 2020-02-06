@@ -87,7 +87,7 @@ public class NewControl extends LinearOpMode implements OpModeAddition{
             if (gamepad2.left_bumper)
                 robot.servo_arm.setPosition(0);
 
-            robot.extensionMotor.setPower(gamepad2.right_stick_y);
+            robot.servo_extension.setPower(gamepad2.right_stick_y);
 
             if (gamepad2.dpad_up) {
                 robot.liftMotor.setPower(1);

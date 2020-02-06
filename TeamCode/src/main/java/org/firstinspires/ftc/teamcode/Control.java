@@ -16,9 +16,10 @@ public class Control extends LinearOpMode implements OpModeAddition {
     double right;
     double speed;
     double direction;
-    double poz_servo = 0;
+    double arm_servo = 0.1;
     double servo_motor = 0;
     double servo_rot = 0.5;
+    double extindere = 0;
 
     @Override
     public boolean isOpModeIsActive() {
@@ -68,6 +69,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
+            /*
             if (gamepad1.dpad_down) {
                 servo_motor+=0.05;
             }
@@ -81,22 +83,23 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
             robot.servo_stone.setPosition(servo_motor);
             telemetry.addData("servo motor ", servo_motor);
-
+            */
             //prins skystone
             if (gamepad2.left_bumper) {
-                poz_servo += 0.1;
+                arm_servo += 0.1;
             }
             if (gamepad2.right_bumper) {
-                poz_servo -= 0.1;
+                arm_servo -= 0.1;
             }
 
-            if(poz_servo > 0.5) poz_servo = 0.5;
-            if(poz_servo < 0) poz_servo = 0;
-            robot.servo_arm.setPosition(poz_servo);
+            if(arm_servo > 0.5) arm_servo = 0.5;
+            if(arm_servo < 0.1) arm_servo = 0.1;
+            robot.servo_arm.setPosition(arm_servo);
 
             telemetry.addData("servoul este ", robot.servo_arm.getPosition());
 
-            robot.extensionMotor.setPower(gamepad2.right_stick_y);
+//            robot.extensionMotor.setPower(gamepad2.right_stick_y);
+            robot.servo_extension.setPower(gamepad2.right_stick_y);
 
             if (gamepad2.dpad_up && !gamepad2.dpad_down) {
                 robot.liftMotor.setPower(0.5);
@@ -116,6 +119,7 @@ public class Control extends LinearOpMode implements OpModeAddition {
             else robot.foundationMotor.setPower(0);
 
 
+            //rotire mana
 
             if(gamepad2.x){
                 servo_rot = 0.5;

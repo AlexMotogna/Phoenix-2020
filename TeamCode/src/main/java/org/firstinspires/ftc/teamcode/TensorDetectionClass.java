@@ -106,7 +106,7 @@ public class TensorDetectionClass {
         int k = -2;
 
 
-        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 1.5) {
+        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 1) {
 
             // getUpdatedRecognitions() will return null if no new information is available since
             // the last time that call was made.
@@ -172,7 +172,7 @@ public class TensorDetectionClass {
         int k = -2;
 
 
-        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 1.5) {
+        while (opMode.isOpModeIsActive() && k == -2 && time.seconds() < 1) {
 
             // getUpdatedRecognitions() will return null if no new information is available since
             // the last time that call was made.

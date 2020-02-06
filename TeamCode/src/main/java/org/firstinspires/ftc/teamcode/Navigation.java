@@ -71,11 +71,11 @@ public class Navigation {
         robot.servo_arm.setPosition(0);
         waitUntil(0.5);
 
-        robot.extensionMotor.setPower(-1);
+        robot.servo_extension.setPower(-1);
 
         waitUntil(0.6);
 
-        robot.extensionMotor.setPower(0);
+        robot.servo_extension.setPower(0);
         robot.liftMotor.setPower(1);
 
         waitUntil(1.2);
@@ -378,11 +378,11 @@ public class Navigation {
     }
 
     public void FrontCatch () {
-        robot.extensionMotor.setPower(-0.5);
+        robot.servo_extension.setPower(-0.5);
         waitUntil(0.5);
-        robot.extensionMotor.setPower(0);
+        robot.servo_extension.setPower(0);
         waitUntil(0.2);
-        robot.servo_arm.setPosition(0);
+        robot.servo_arm.setPosition(0.1);
         waitUntil(0.5);
     }
 
@@ -430,6 +430,11 @@ public class Navigation {
         robot.rightMotorFront.setPower(0);
         robot.leftMotorFront.setPower(0);
 
+    }
+
+    public void LasaManaJos (){
+        robot.servo_arm.setPosition(0.1);
+        waitUntil(0.5);
     }
 
 }
