@@ -21,6 +21,9 @@ public class Control extends LinearOpMode implements OpModeAddition {
     double servo_rot = 0.5;
     double extindere = 0;
 
+    double servo_test1 = 0;
+    double servo_test2 = 0;
+
     @Override
     public boolean isOpModeIsActive() {
         return opModeIsActive();
@@ -69,6 +72,39 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
+
+            if(gamepad1.x){
+                servo_test1+=0.05;
+            }
+            else if(gamepad1.y){
+                servo_test1-=0.05;
+            }
+
+            if(gamepad1.a){
+                servo_test2+=0.05;
+            }
+            else if(gamepad1.b){
+                servo_test2-=0.05;
+            }
+
+            if(gamepad1.right_bumper){
+                servo_test1 = 0.7;
+                servo_test2 = 0.05;
+            }
+
+            else if(gamepad1.left_bumper){
+                servo_test1 = 0.35;
+                servo_test2 = 0.35;
+            }
+
+            robot.servo1.setPosition(servo_test1);
+            //0.7 poz jos
+            //0.35 poz sus
+            robot.servo2.setPosition(servo_test2);
+
+            telemetry.addData("servo_test1 ", servo_test1);
+            telemetry.addData("servo_test2 ", servo_test2);
+
             /*
             if (gamepad1.dpad_down) {
                 servo_motor+=0.05;
@@ -85,55 +121,55 @@ public class Control extends LinearOpMode implements OpModeAddition {
             telemetry.addData("servo motor ", servo_motor);
             */
             //prins skystone
-            if (gamepad2.left_bumper) {
-                arm_servo += 0.1;
-            }
-            if (gamepad2.right_bumper) {
-                arm_servo -= 0.1;
-            }
+//            if (gamepad2.left_bumper) {
+//                arm_servo += 0.1;
+//            }
+//            if (gamepad2.right_bumper) {
+//                arm_servo -= 0.1;
+//            }
+//
+//            if(arm_servo > 0.5) arm_servo = 0.5;
+//            if(arm_servo < 0.1) arm_servo = 0.1;
+//            robot.servo_arm.setPosition(arm_servo);
 
-            if(arm_servo > 0.5) arm_servo = 0.5;
-            if(arm_servo < 0.1) arm_servo = 0.1;
-            robot.servo_arm.setPosition(arm_servo);
-
-            telemetry.addData("servoul este ", robot.servo_arm.getPosition());
+//            telemetry.addData("servoul este ", robot.servo_arm.getPosition());
 
 //            robot.extensionMotor.setPower(gamepad2.right_stick_y);
-            robot.servo_extension.setPower(gamepad2.right_stick_y);
+//            robot.servo_extension.setPower(gamepad2.right_stick_y);
 
-            if (gamepad2.dpad_up && !gamepad2.dpad_down) {
-                robot.liftMotor.setPower(0.5);
-            } else if (gamepad2.dpad_down && !gamepad2.dpad_up) {
-                robot.liftMotor.setPower(-0.5);
-            } else {
-                robot.liftMotor.setPower(0);
-            }
+//            if (gamepad2.dpad_up && !gamepad2.dpad_down) {
+//                robot.liftMotor.setPower(0.5);
+//            } else if (gamepad2.dpad_down && !gamepad2.dpad_up) {
+//                robot.liftMotor.setPower(-0.5);
+//            } else {
+//                robot.liftMotor.setPower(0);
+//            }
 
 
-            if(gamepad1.a){
-                robot.foundationMotor.setPower(0.5);
-            }
-            else if (gamepad1.b){
-                robot.foundationMotor.setPower(-0.5);
-            }
-            else robot.foundationMotor.setPower(0);
+//            if(gamepad1.a){
+//                robot.foundationMotor.setPower(0.5);
+//            }
+//            else if (gamepad1.b){
+//                robot.foundationMotor.setPower(-0.5);
+//            }
+//            else robot.foundationMotor.setPower(0);
 
 
             //rotire mana
 
-            if(gamepad2.x){
-                servo_rot = 0.5;
-            }
-            else if(gamepad2.y){
-                servo_rot = -1;
-            }
-            else if(gamepad2.a){
-                servo_rot = 1;
-            }
+//            if(gamepad2.x){
+//                servo_rot = 0.5;
+//            }
+//            else if(gamepad2.y){
+//                servo_rot = -1;
+//            }
+//            else if(gamepad2.a){
+//                servo_rot = 1;
+//            }
 
-            robot.servo_rotatie.setPosition(servo_rot);
+//            robot.servo_rotatie.setPosition(servo_rot);
 
-            telemetry.addData("servo rotatie: ", servo_rot);
+//            telemetry.addData("servo rotatie: ", servo_rot);
 
             telemetry.addData("leftBack", robot.leftMotorBack.getCurrentPosition());
             telemetry.addData("leftFront", robot.leftMotorFront.getCurrentPosition());

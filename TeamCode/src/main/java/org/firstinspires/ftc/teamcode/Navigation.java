@@ -15,6 +15,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import org.firstinspires.ftc.robotcore.internal.opmode.TelemetryImpl;
 
+import static java.lang.Math.exp;
+
 public class Navigation {
     Hardware robot;
     OpModeAddition opMode;
@@ -436,5 +438,52 @@ public class Navigation {
         robot.servo_arm.setPosition(0.1);
         waitUntil(0.5);
     }
+
+
+    public void drive_on_function(int target){
+
+        double speed = 0.368;
+
+        target = (int)(target * k);
+
+        robot.leftMotorBack.setTargetPosition(robot.leftMotorBack.getCurrentPosition() + target);
+        robot.rightMotorBack.setTargetPosition(robot.rightMotorBack.getCurrentPosition() - target);
+        robot.leftMotorFront.setTargetPosition(robot.leftMotorFront.getCurrentPosition() - target);
+        robot.rightMotorFront.setTargetPosition(robot.rightMotorFront.getCurrentPosition() + target);
+
+        robot.rightMotorBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.leftMotorBack.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.rightMotorFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.leftMotorFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        double Target = (double)target;
+
+        speed = exp((-1)*((2/Target)*robot.leftMotorBack.getCurrentPosition() -  1)*((2/Target)*robot.leftMotorBack.getCurrentPosition() -  1));
+
+        robot.leftMotorBack.setPower(speed);
+        robot.leftMotorFront.setPower(-speed);
+        robot.rightMotorBack.setPower(-speed);
+        robot.rightMotorFront.setPower(speed);
+
+        while(opMode.isOpModeIsActive() && robot.leftMotorFront.isBusy() && robot.leftMotorBack.isBusy() && robot.rightMotorFront.isBusy() && robot.rightMotorBack.isBusy()){
+
+            speed = exp((-1)*((2/Target)*robot.leftMotorBack.getCurrentPosition() -  1)*((2/Target)*robot.leftMotorBack.getCurrentPosition() -  1));
+
+            robot.leftMotorBack.setPower(speed);
+            robot.leftMotorFront.setPower(-speed);
+            robot.rightMotorBack.setPower(-speed);
+            robot.rightMotorFront.setPower(speed);
+
+            robot.loggerData.writeLogLine();
+
+        }
+
+        robot.leftMotorBack.setPower(0);
+        robot.leftMotorFront.setPower(0);
+        robot.rightMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+
+    }
+
 
 }

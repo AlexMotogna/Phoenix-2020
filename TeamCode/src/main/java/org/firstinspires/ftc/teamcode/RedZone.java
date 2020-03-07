@@ -54,7 +54,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(8, 0.3);
 
-            robot.navigation.Sliding(3, 0.2);
+            robot.navigation.Sliding(3.5, 0.2);
 
 //            robot.navigation.Turn(156, 0.5);
 
@@ -111,7 +111,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-8, -0.3); //-35 pt perete
 
-            robot.navigation.Turn(-82, 0.3);
+            robot.navigation.Turn(-81, 0.3);
 
             robot.navigation.drive(50, 0.7);
 
@@ -123,7 +123,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-78, -0.5);
 
-            robot.navigation.Turn(74, 0.4);
+            robot.navigation.Turn(80, 0.4);
 
             robot.navigation.drive(8, 0.4);
 
@@ -131,13 +131,13 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-8, 0.4);
 
-            robot.navigation.Turn(-80, 0.4);
+            robot.navigation.Turn(-75, 0.4);
 
-            robot.navigation.drive(80, 0.7);
+            robot.navigation.drive(77, 0.7);
 
             robot.navigation.FrontDontCatch();
 
-            robot.navigation.drive(-15, 0.8);
+            robot.navigation.drive(-14, 0.8);
 
             robot.navigation.LasaManaJos();
 
@@ -159,7 +159,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-8 , -0.5); //-35 pt perete
 
-            robot.navigation.Turn(-80, 0.3);
+            robot.navigation.Turn(-78, 0.3);
 
             robot.navigation.drive(55, 0.8);
 
@@ -170,9 +170,9 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 //            robot.navigation.drive(-20, -0.3);
             //al doilea stone
 
-            robot.navigation.drive(-80, -0.8);
+            robot.navigation.drive(-81, -0.8);
 
-            robot.navigation.Turn(74, 0.4);
+            robot.navigation.Turn(82, 0.4);
 
             robot.navigation.drive(8, 0.4);
 
@@ -180,7 +180,7 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(-8, 0.4);
 
-            robot.navigation.Turn(-81, 0.4);
+            robot.navigation.Turn(-78, 0.4);
 
             robot.navigation.drive(80, 0.7);
 
