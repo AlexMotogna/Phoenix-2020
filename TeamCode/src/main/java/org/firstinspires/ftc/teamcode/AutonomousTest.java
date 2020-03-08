@@ -46,7 +46,14 @@ public class AutonomousTest extends LinearOpMode implements OpModeAddition {
 
 //            robot.navigation.FrontCatch();
 
-        robot.navigation.drive_on_function(50);
+        //robot.navigation.drive_on_function(50);
+
+      //  robot.navigation.Sliding_45_Dreapta(2,0.3);
+
+//        robot.navigation.drive(5,0.4);
+//        robot.navigation.Curba_Stanga();
+//        robot.navigation.waitUntil(0.5);
+        robot.navigation.drive(80, 0.8);
 
         robot.loggerData.closeFile();
     }

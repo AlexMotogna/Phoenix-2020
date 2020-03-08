@@ -34,6 +34,8 @@ public class Navigation {
 
     public Navigation(Hardware robot){
         this.robot = robot;
+
+
     }
 
     public void setOpModeAddition(OpModeAddition opMode){
@@ -136,12 +138,12 @@ public class Navigation {
 
             robot.loggerData.writeLogLine();
 
-//            telemetry.addData("right_encoder_front", robot.rightMotorFront.getCurrentPosition());
-//            telemetry.addData("right_encoder_back", robot.rightMotorBack.getCurrentPosition());
-//            telemetry.addData("left_motor_back", robot.leftMotorBack.getCurrentPosition());
-//            telemetry.addData("left_motor_front", robot.leftMotorFront.getCurrentPosition());
-//            telemetry.addData("target", robot.leftMotorBack.getTargetPosition());
-//            telemetry.update();
+            telemetry.addData("right_encoder_front", robot.rightMotorFront.getCurrentPosition());
+            telemetry.addData("right_encoder_back", robot.rightMotorBack.getCurrentPosition());
+            telemetry.addData("left_motor_back", robot.leftMotorBack.getCurrentPosition());
+            telemetry.addData("left_motor_front", robot.leftMotorFront.getCurrentPosition());
+            telemetry.addData("target", robot.leftMotorBack.getTargetPosition());
+            telemetry.update();
         }
 
         robot.rightMotorBack.setPower(0);
@@ -327,8 +329,30 @@ public class Navigation {
 
     }
 
+    public void Curba_Stanga()
+    {
+        robot.rightMotorBack.setPower(0.9);
+        robot.rightMotorFront.setPower(0.9);
+        robot.leftMotorFront.setPower(0.1);
+        robot.leftMotorBack.setPower(0.1);
+
+        waitUntil(0.83);
+
+        robot.rightMotorBack.setPower(0);
+        robot.leftMotorBack.setPower(0);
+        robot.rightMotorFront.setPower(0);
+        robot.leftMotorFront.setPower(0);
+
+
+    }
+
     public void Sliding_45_Dreapta(double Time, double Speed)
     {
+        this.robot.leftMotorBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        this.robot.leftMotorFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        this.robot.rightMotorFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        this.robot.rightMotorBack.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         robot.leftMotorBack.setPower(0);
         robot.leftMotorFront.setPower(Speed);
         robot.rightMotorBack.setPower(Speed);
