@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name="servo_setter", group="Pushbot")
-@Disabled
+
 public class ServoSetter extends LinearOpMode {
 
 

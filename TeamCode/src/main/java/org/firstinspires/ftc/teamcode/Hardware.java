@@ -38,6 +38,9 @@ public class Hardware {
     public Servo servo_rotatie = null;
     public CRServo servo_extension = null;
 
+    public Servo servot1 = null;
+    public Servo servot2 = null;
+
     public ConceptTensorFlowObjectDetection tensorflow = null;
     public LoggerData loggerData = null;
 
@@ -90,6 +93,8 @@ public class Hardware {
 //        servo_extension = hmap.get(CRServo.class, "servo_extension");
         servo1 = hmap.get(Servo.class, "servo1");
         servo2 = hmap.get(Servo.class, "servo2");
+        servot1 = hmap.get(Servo.class,"servot1");
+        servot2 = hmap.get(Servo.class,"servot2");
         imu = hmap.get(BNO055IMU.class, "imu");
 
 //        servo1.setDirection(Servo.Direction.REVERSE);

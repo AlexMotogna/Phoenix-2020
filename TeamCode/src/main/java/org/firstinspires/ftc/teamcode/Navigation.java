@@ -383,39 +383,16 @@ public class Navigation {
         robot.leftMotorFront.setPower(0);
     }
 
-    public void Catch (){
-        robot.foundationMotor.setPower(-0.3);
+    public void Catch_Foundation () {
+        robot.servo1.setPosition(0.7);
+        robot.servo2.setPosition(0.05);
     }
 
-    public void CatchForStone (){
-        robot.servo_stone.setPosition(0.65);
-        waitUntil(0.5);
+    public void Release_Foundation () {
+        robot.servo1.setPosition(0.35);
+        robot.servo2.setPosition(0.35);
     }
 
-    public void DontCatch () {
-        robot.foundationMotor.setPower(1);
-        waitUntil(0.1);
-        robot.foundationMotor.setPower(0);
-    }
-    
-    public void DontCatchForStone () {
-        robot.servo_stone.setPosition(0);
-        waitUntil(0.5 );
-    }
-
-    public void FrontCatch () {
-        robot.servo_extension.setPower(-0.5);
-        waitUntil(0.5);
-        robot.servo_extension.setPower(0);
-        waitUntil(0.2);
-        robot.servo_arm.setPosition(0.1);
-        waitUntil(0.5);
-    }
-
-    public void FrontDontCatch () {
-        robot.servo_arm.setPosition(0.6);
-        waitUntil(0.5);
-    }
 
     public void servo_initial () {
         robot.servo_rotatie.setPosition(0.5);

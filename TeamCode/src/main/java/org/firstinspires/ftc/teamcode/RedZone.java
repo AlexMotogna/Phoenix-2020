@@ -58,11 +58,9 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
 //            robot.navigation.Turn(156, 0.5);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.drive(25, 0.4);
 
-            robot.navigation.FrontCatch();
 
             robot.navigation.drive(-7, -0.3); //-35 langa perete
 
@@ -70,7 +68,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(62, 0.9);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.servo_initial();
 
@@ -82,7 +79,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(7, 0.5);
 
-            robot.navigation.FrontCatch();
 
             robot.navigation.drive(-5, 0.5);
 
@@ -90,7 +86,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(50, 0.9);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.drive(-15, -0.9);
 
@@ -103,11 +98,9 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
 //            robot.navigation.Turn(158, 0.4);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.drive(25, 0.4);
 
-            robot.navigation.FrontCatch();
 
             robot.navigation.drive(-8, -0.3); //-35 pt perete
 
@@ -115,7 +108,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(50, 0.7);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.servo_initial();
 
@@ -127,7 +119,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(8, 0.4);
 
-            robot.navigation.FrontCatch();
 
             robot.navigation.drive(-8, 0.4);
 
@@ -135,7 +126,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(77, 0.7);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.drive(-14, 0.8);
 
@@ -151,11 +141,9 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
 //            robot.navigation.Turn(155, 0.4);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.drive(25, 0.4);
 
-            robot.navigation.FrontCatch();
 
             robot.navigation.drive(-8 , -0.5); //-35 pt perete
 
@@ -163,7 +151,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(55, 0.8);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.servo_initial();
 
@@ -176,7 +163,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(8, 0.4);
 
-            robot.navigation.FrontCatch();
 
             robot.navigation.drive(-8, 0.4);
 
@@ -184,7 +170,6 @@ public class RedZone extends LinearOpMode implements OpModeAddition {
 
             robot.navigation.drive(80, 0.7);
 
-            robot.navigation.FrontDontCatch();
 
             robot.navigation.drive(-15, 0.8);
 

@@ -23,6 +23,8 @@ public class Control extends LinearOpMode implements OpModeAddition {
 
     double servo_test1 = 0;
     double servo_test2 = 0;
+    double servo_stone = 0;
+    double servo_jos = 0.74;
 
     @Override
     public boolean isOpModeIsActive() {
@@ -72,6 +74,21 @@ public class Control extends LinearOpMode implements OpModeAddition {
                 robot.rightMotorFront.setPower(right);
             }
 
+            if (gamepad2.x) {
+                servo_stone = 0.52;
+            }
+
+            if (gamepad2.y){
+                servo_stone = 0;
+            }
+
+            if(gamepad2.a) {
+                servo_jos = 0.24;
+            }
+
+            if(gamepad2.b){
+                servo_jos = 0.74;
+            }
 
             if(gamepad1.x){
                 servo_test1+=0.05;
@@ -102,6 +119,12 @@ public class Control extends LinearOpMode implements OpModeAddition {
             //0.35 poz sus
             robot.servo2.setPosition(servo_test2);
 
+            robot.servot1.setPosition(servo_stone);
+
+            robot.servot2.setPosition(servo_jos);
+
+              telemetry.addData("servo_stone", servo_stone);
+              telemetry.addData("servo_jos", servo_jos);
             telemetry.addData("servo_test1 ", servo_test1);
             telemetry.addData("servo_test2 ", servo_test2);
 

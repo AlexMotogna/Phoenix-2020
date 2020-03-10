@@ -29,20 +29,21 @@ public class BlueFoundationPerete extends LinearOpMode implements OpModeAddition
 
         waitForStart();
 
-        robot.navigation.drive(-2, -0.2);
-        robot.navigation.Sliding(4,-0.2);
-        robot.navigation.drive(-34,-0.2);
-        robot.navigation.Catch();
+        robot.navigation.drive(2, 0.2);
+        robot.navigation.Sliding(4,0.2);
+        robot.navigation.drive(34,0.2);
+        robot.navigation.Catch_Foundation();
         robot.navigation.waitUntil(1);
-        robot.navigation.drive(40,0.2);
+        robot.navigation.drive(-28,-0.4);
         robot.navigation.Turn(75, 0.3);
-        robot.navigation.drive(-13, -0.5);
-        robot.navigation.DontCatch();
+        robot.navigation.drive(13, 0.5);
+        robot.navigation.Release_Foundation();
+        robot.navigation.waitUntil(0.3);
         // negativ la dreapta
         // pozitiv la stanga
-        robot.navigation.Sliding(2.5 , -0.2); //PARCARE LA PERETE
+        //robot.navigation.Sliding(2.5 , -0.2); //PARCARE LA PERETE
 //        robot.navigation.Sliding(1.6, 0.3); //PARCARE LA POD
-        robot.navigation.drive(47, 0.5);
+        robot.navigation.drive(-47, -0.5);
         robot.loggerData.closeFile();
     }
 }
